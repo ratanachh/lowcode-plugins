@@ -1,6 +1,6 @@
 import React from 'react';
 import { NumberPicker, Icon } from '@alifd/next';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { IPublicModelPluginContext } from '@rchh/lowcode-types';
 
 import './index.scss';
 

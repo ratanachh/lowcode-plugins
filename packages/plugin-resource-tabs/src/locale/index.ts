@@ -1,4 +1,4 @@
-import { common } from '@alilc/lowcode-engine';
+import { common } from '@rchh/lowcode-engine';
 import enUS from './en-US.json';
 import zhCN from './zh-CN.json';
 

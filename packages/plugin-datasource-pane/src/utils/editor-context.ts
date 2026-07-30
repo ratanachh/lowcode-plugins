@@ -2,7 +2,7 @@
  * 设计态编辑器上下文
  */
 import { createContext } from 'react';
-import { Project, Setters } from '@alilc/lowcode-shell';
+import { Project, Setters } from '@rchh/lowcode-shell';
 import Logger from 'zen-logger';
 
 interface IEditorContext {

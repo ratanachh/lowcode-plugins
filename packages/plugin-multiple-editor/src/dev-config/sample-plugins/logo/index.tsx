@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-import { PluginProps } from '@alilc/lowcode-types';
+import { PluginProps } from '@rchh/lowcode-types';
 
 export interface IProps {
   logo?: string;

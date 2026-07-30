@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { common, project, config, event } from '@alilc/lowcode-engine';
+import { common, project, config, event } from '@rchh/lowcode-engine';
 import { Loading, Box } from '@alifd/next';
 
 import { default as BlockCard } from '../card';

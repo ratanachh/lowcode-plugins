@@ -8,9 +8,9 @@ import _noop from 'lodash/noop';
 import _isArray from 'lodash/isArray';
 import _last from 'lodash/last';
 import _isPlainObject from 'lodash/isPlainObject';
-import MonacoEditor from '@alilc/lowcode-plugin-base-monaco-editor';
+import MonacoEditor from '@rchh/lowcode-plugin-base-monaco-editor';
 import type { editor } from 'monaco-editor';
-import { RuntimeDataSourceConfig as DataSourceConfig } from '@alilc/lowcode-datasource-types';
+import { RuntimeDataSourceConfig as DataSourceConfig } from '@rchh/lowcode-datasource-types';
 import Ajv from 'ajv';
 import { DataSourcePaneImportPluginComponentProps } from '../../types';
 

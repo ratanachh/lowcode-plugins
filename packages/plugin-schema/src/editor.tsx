@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useState, useRef, useCallback, useEffect, useLayoutEffect } from 'react';
-import MonacoEditor from '@alilc/lowcode-plugin-base-monaco-editor';
+import MonacoEditor from '@rchh/lowcode-plugin-base-monaco-editor';
 
 import { Dialog, Message, Button } from '@alifd/next';
-import { IPublicEnumTransformStage, IPublicModelPluginContext } from '@alilc/lowcode-types';
-import { IEditorInstance } from '@alilc/lowcode-plugin-base-monaco-editor/lib/helper';
+import { IPublicEnumTransformStage, IPublicModelPluginContext } from '@rchh/lowcode-types';
+import { IEditorInstance } from '@rchh/lowcode-plugin-base-monaco-editor/lib/helper';
 
 interface PluginCodeDiffProps {
   pluginContext: IPublicModelPluginContext;

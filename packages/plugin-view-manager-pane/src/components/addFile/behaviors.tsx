@@ -1,5 +1,5 @@
 import React from 'react';
-import { IPublicModelPluginContext, IPublicModelResource } from '@alilc/lowcode-types';
+import { IPublicModelPluginContext, IPublicModelResource } from '@rchh/lowcode-types';
 import { OthersIcon } from '../resourceTree/icon';
 import { IOptions } from '../..';
 

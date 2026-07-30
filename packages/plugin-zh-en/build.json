@@ -1,7 +1,7 @@
 {
   "plugins": [
     [
-      "@alilc/build-plugin-alt",
+      "@rchh/build-plugin-alt",
       {
         "type": "plugin"
       }

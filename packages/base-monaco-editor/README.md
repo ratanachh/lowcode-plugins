@@ -13,7 +13,7 @@ It removes those obstacles when using monaco-editor directly:
 
 And it supports **some** of the monaco-editor typescript definitions without referring to monaco-editor directly.
 
-BTW. Style is seperate from index.js. Use `import '@alilc/lowcode-plugin-base-monaco-editor/lib/style';` for styling.
+BTW. Style is seperate from index.js. Use `import '@rchh/lowcode-plugin-base-monaco-editor/lib/style';` for styling.
 
 ## API
 
@@ -66,7 +66,7 @@ BTW. Style is seperate from index.js. Use `import '@alilc/lowcode-plugin-base-mo
 ```jsx
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import SingleMonacoEditorComponent from '@alilc/lowcode-plugin-base-monaco-editor';
+import SingleMonacoEditorComponent from '@rchh/lowcode-plugin-base-monaco-editor';
 
 function App() {
   const [files, setFiles] = React.useState({
@@ -128,7 +128,7 @@ ReactDOM.render(<App />, mountNode);
 ### Using controller
 
 ```ts
-import { controller } from '@alilc/lowcode-plugin-base-monaco-editor';
+import { controller } from '@rchh/lowcode-plugin-base-monaco-editor';
 
 // configure Monaco to be singleton
 controller.updateMeta({ singleton: true });

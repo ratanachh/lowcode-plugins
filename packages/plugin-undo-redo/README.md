@@ -1,4 +1,4 @@
-# @alilc/lowcode-plugin-undo-redo [![][npm-image]][npm-url]
+# @rchh/lowcode-plugin-undo-redo [![][npm-image]][npm-url]
 
 Switch between Simplified Chinese and English for Lowcode Engine.
 
@@ -8,8 +8,8 @@ Switch between Simplified Chinese and English for Lowcode Engine.
 
 ### 注册插件
 ```jsx
-import { plugins } from '@alilc/lowcode-engine';
-import PluginUndoRedo from '@alilc/lowcode-plugin-undo-redo';
+import { plugins } from '@rchh/lowcode-engine';
+import PluginUndoRedo from '@rchh/lowcode-plugin-undo-redo';
 
 // 注册到引擎
 plugins.register(PluginUndoRedo);

@@ -6,7 +6,7 @@ import cn from 'classnames';
 import {
   RuntimeDataSource as DataSource,
   RuntimeDataSourceConfig as DataSourceConfig,
-} from '@alilc/lowcode-datasource-types';
+} from '@rchh/lowcode-datasource-types';
 import { Button, Message, Dialog } from '@alifd/next';
 import _isArray from 'lodash/isArray';
 import { createStateMachine } from '../utils/stateMachine';

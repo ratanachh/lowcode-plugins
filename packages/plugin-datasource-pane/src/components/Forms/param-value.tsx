@@ -10,7 +10,7 @@ import {
   Switch,
 } from '@alifd/next';
 import { connect } from '@formily/react';
-import { JSExpression, isJSExpression } from '@alilc/lowcode-types';
+import { JSExpression, isJSExpression } from '@rchh/lowcode-types';
 import _isPlainObject from 'lodash/isPlainObject';
 import _isArray from 'lodash/isArray';
 import _isNumber from 'lodash/isNumber';

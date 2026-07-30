@@ -1,5 +1,5 @@
 {
-  "name": "@alilc/lowcode-plugin-components-pane",
+  "name": "@rchh/lowcode-plugin-components-pane",
   "version": "2.0.4",
   "description": "低代码组件面板",
   "files": [
@@ -44,7 +44,7 @@
     "f2elint": "^1.2.0",
     "html-webpack-plugin": "^5.3.2",
     "moment": "^2.29.1",
-    "@alilc/build-plugin-alt": "^1.0.0",
+    "@rchh/build-plugin-alt": "npm:@alilc/build-plugin-alt@^1.0.0",
     "react-dom": "^16.0.0"
   },
   "husky": {
@@ -54,7 +54,7 @@
     }
   },
   "dependencies": {
-    "@alilc/lowcode-types": "^1.0.0",
+    "@rchh/lowcode-types": "npm:@alilc/lowcode-types@^1.0.0",
     "classnames": "^2.3.1",
     "lodash.debounce": "^4.0.8",
     "react": "^16.0.0"
@@ -63,5 +63,9 @@
     "type": "git",
     "url": "https://github.com/alibaba/lowcode-plugins.git",
     "directory": "packages/plugin-components-pane"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

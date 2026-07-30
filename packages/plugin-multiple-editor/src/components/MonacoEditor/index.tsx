@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import BaseMonacoEditor from '@alilc/lowcode-plugin-base-monaco-editor';
+import BaseMonacoEditor from '@rchh/lowcode-plugin-base-monaco-editor';
 import type { editor } from 'monaco-editor';
 import './index.css';
 import { Monaco } from '../../types';

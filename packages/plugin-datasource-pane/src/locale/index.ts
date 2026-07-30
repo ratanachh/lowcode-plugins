@@ -1,4 +1,4 @@
-import { createIntl } from '@alilc/lowcode-editor-core';
+import { createIntl } from '@rchh/lowcode-editor-core';
 import enUS from './en-US.json';
 import zhCN from './zh-CN.json';
 

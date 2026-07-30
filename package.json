@@ -53,7 +53,8 @@
     "lockfile": "enable"
   },
   "resolutions": {
-    "@builder/babel-preset-ice": "1.0.1"
+    "@builder/babel-preset-ice": "1.0.1",
+    "@types/node": "16.18.96"
   },
   "repository": "https://github.com/alibaba/lowcode-plugins.git"
 }

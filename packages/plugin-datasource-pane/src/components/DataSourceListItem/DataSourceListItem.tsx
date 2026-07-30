@@ -1,7 +1,7 @@
 // TODO 抽离 renderItem
 import React, { PureComponent, Component, CSSProperties } from 'react';
 import { Button, Icon, Checkbox, Tag, Balloon } from '@alifd/next';
-import { RuntimeDataSourceConfig as DataSourceConfig } from '@alilc/lowcode-datasource-types';
+import { RuntimeDataSourceConfig as DataSourceConfig } from '@rchh/lowcode-datasource-types';
 import cn from 'classnames';
 import { DragSource, DropTarget } from 'react-dnd';
 import _uniqueId from 'lodash/uniqueId';

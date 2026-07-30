@@ -1,8 +1,8 @@
-import { workspace } from '@alilc/lowcode-engine';
+import { workspace } from '@rchh/lowcode-engine';
 import {
   IPublicModelPluginContext,
   IPublicModelResource,
-} from '@alilc/lowcode-types';
+} from '@rchh/lowcode-types';
 import { Search, Balloon } from '@alifd/next';
 import React, { useCallback, useState, useEffect, useRef } from 'react';
 import { FileIcon, IconArrowRight } from './icon';

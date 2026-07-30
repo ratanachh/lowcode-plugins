@@ -1,4 +1,4 @@
-# @alilc/lowcode-plugin-components-pane
+# @rchh/lowcode-plugin-components-pane
 
 ## 注意
 

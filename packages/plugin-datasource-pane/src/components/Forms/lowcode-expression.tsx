@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from '@formily/react';
-import { JSExpression } from '@alilc/lowcode-types';
+import { JSExpression } from '@rchh/lowcode-types';
 import _noop from 'lodash/noop';
 import { EditorContext } from '../../utils/editor-context';
 import { generateClassName } from '../../utils/misc';

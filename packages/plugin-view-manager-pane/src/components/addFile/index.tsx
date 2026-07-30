@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { IPublicModelPluginContext } from '@rchh/lowcode-types';
 import { AddIcon } from '../../icon';
 import { IOptions } from '../..';
 import './index.scss';

@@ -1,5 +1,5 @@
 {
-  "name": "@alilc/lowcode-plugin-code-editor",
+  "name": "@rchh/lowcode-plugin-code-editor",
   "author": "59174526@qq.com & humphry.huang9@gmail.com",
   "version": "1.0.9",
   "description": "CodeEditor",
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@alifd/next": "^1.25.13",
-    "@alilc/lowcode-plugin-base-monaco-editor": "^1.1.1",
+    "@rchh/lowcode-plugin-base-monaco-editor": "1.1.2",
     "@babel/core": "^7.15.8",
     "@babel/parser": "^7.15.8",
     "@babel/preset-env": "7.22.9",
@@ -40,10 +40,10 @@
   "devDependencies": {
     "@alib/build-scripts": "^0.1.32",
     "@alifd/theme-lowcode-light": "^0.2.1",
-    "@alilc/build-plugin-alt": "^1.0.0",
-    "@alilc/lowcode-engine": "^1.0.0",
-    "@alilc/lowcode-shell": "^1.0.0",
-    "@alilc/lowcode-types": "^1.0.0",
+    "@rchh/build-plugin-alt": "npm:@alilc/build-plugin-alt@^1.0.0",
+    "@rchh/lowcode-engine": "npm:@alilc/lowcode-engine@^1.0.0",
+    "@rchh/lowcode-shell": "npm:@alilc/lowcode-shell@^1.0.0",
+    "@rchh/lowcode-types": "npm:@alilc/lowcode-types@^1.0.0",
     "@types/babel-types": "^7.0.9",
     "@types/babel__preset-env": "^7.9.2",
     "@types/react": "^16.9.13",
@@ -55,5 +55,6 @@
     "type": "git",
     "url": "https://github.com/alibaba/lowcode-plugins.git",
     "directory": "packages/plugin-code-editor"
-  }
+  },
+  "peerDependencies": {}
 }

@@ -1,5 +1,5 @@
 import { js_beautify, css_beautify } from 'js-beautify';
-import { isJSExpression, ProjectSchema, RootSchema } from '@alilc/lowcode-types';
+import { isJSExpression, ProjectSchema, RootSchema } from '@rchh/lowcode-types';
 import { Dialog } from '@alifd/next';
 import { IState } from '../types';
 import { WORDS } from '../config';

@@ -4,15 +4,15 @@ module.exports = function (webpackEnv) {
   return isEnvProduction ? {
     'react': 'react',
     'react-dom': 'react-dom',
-    '@alilc/lowcode-engine': '@alilc/lowcode-engine',
-    '@alilc/lowcode-engine-ext': '@alilc/lowcode-engine-ext',
+    '@rchh/lowcode-engine': '@rchh/lowcode-engine',
+    '@rchh/lowcode-engine-ext': '@rchh/lowcode-engine-ext',
     '@alifd/next': '@alifd/next',
     'prettier/esm/standalone.mjs': 'prettier/esm/standalone.mjs',
   } : {
     'react': 'React',
     'react-dom': 'ReactDOM',
-    '@alilc/lowcode-engine': 'AliLowCodeEngine',
-    '@alilc/lowcode-engine-ext': 'AliLowCodeEngineExt',
+    '@rchh/lowcode-engine': 'AliLowCodeEngine',
+    '@rchh/lowcode-engine-ext': 'AliLowCodeEngineExt',
     '@alifd/next': 'Next',
     'prettier/esm/standalone.mjs': 'prettier',
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Search } from '@alifd/next';
-import { PluginProps } from '@alilc/lowcode-types';
+import { PluginProps } from '@rchh/lowcode-types';
 import cls from 'classnames/bind';
 import debounce from 'lodash.debounce';
 import style from './index.module.scss';

@@ -1,4 +1,4 @@
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { IPublicModelPluginContext } from '@rchh/lowcode-types';
 import ComponentsPane from './pane';
 const ComponentPanelPlugin = (ctx: IPublicModelPluginContext) => {
   return {

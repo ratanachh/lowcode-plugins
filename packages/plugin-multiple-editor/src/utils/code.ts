@@ -1,4 +1,4 @@
-import { IPublicTypeProjectSchema, IPublicTypeRootSchema } from '@alilc/lowcode-types';
+import { IPublicTypeProjectSchema, IPublicTypeRootSchema } from '@rchh/lowcode-types';
 // @ts-ignore
 import prettier from 'prettier/esm/standalone.mjs';
 import parserBabel from 'prettier/parser-babel';

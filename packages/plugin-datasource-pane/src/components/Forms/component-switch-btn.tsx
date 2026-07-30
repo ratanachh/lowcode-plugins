@@ -6,7 +6,7 @@ import { connect, mapProps } from '@formily/react';
 import cn from 'classnames';
 import { generateClassName } from '../../utils/misc';
 import { Field } from '@formily/core'
-import { isJSExpression, JSExpression } from '@alilc/lowcode-types';
+import { isJSExpression, JSExpression } from '@rchh/lowcode-types';
 
 export interface ComponentSwitchBtnCompProps {
   className?: string;

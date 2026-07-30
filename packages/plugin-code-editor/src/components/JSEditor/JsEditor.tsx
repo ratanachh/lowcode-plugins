@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import MonacoEditor from '@alilc/lowcode-plugin-base-monaco-editor';
+import MonacoEditor from '@rchh/lowcode-plugin-base-monaco-editor';
 import { Tab, Button, Dialog } from '@alifd/next';
 import { ErrorTip } from '../ErrorTip';
 
@@ -7,7 +7,7 @@ import { defaultBabelConfig, defaultCode, WORDS, TAB_KEY } from '../../config';
 import { transformJS, transformAst, stateParser, getMethods } from '../../utils';
 
 import { FunctionEventParams } from '../../types';
-import { IEditorInstance, IMonacoInstance } from '@alilc/lowcode-plugin-base-monaco-editor/lib/helper';
+import { IEditorInstance, IMonacoInstance } from '@rchh/lowcode-plugin-base-monaco-editor/lib/helper';
 
 import './JsEditor.less';
 

@@ -2,7 +2,7 @@
   "plugins": [
     "build-plugin-component",
     [
-      "@alilc/build-plugin-alt",
+      "@rchh/build-plugin-alt",
       {
         "type": "plugin",
         "inject": true,

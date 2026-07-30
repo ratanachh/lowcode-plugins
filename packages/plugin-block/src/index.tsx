@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { IPublicModelPluginContext } from '@rchh/lowcode-types';
 import { default as BlockPane } from './pane';
 
 const LowcodePluginCusPlugin = (ctx: IPublicModelPluginContext) => {

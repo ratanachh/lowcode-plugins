@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
-import MonacoEditor from '@alilc/lowcode-plugin-base-monaco-editor';
+import MonacoEditor from '@rchh/lowcode-plugin-base-monaco-editor';
 import { Tab } from '@alifd/next';
 
-import { IEditorInstance } from '@alilc/lowcode-plugin-base-monaco-editor/lib/helper';
+import { IEditorInstance } from '@rchh/lowcode-plugin-base-monaco-editor/lib/helper';
 
 import { TAB_KEY } from '../../config';
 

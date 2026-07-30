@@ -1,5 +1,5 @@
 {
-  "name": "@alilc/lowcode-plugin-schema",
+  "name": "@rchh/lowcode-plugin-schema",
   "author": "alvarto",
   "version": "1.0.5",
   "description": "Show schema in lowcode editor",
@@ -21,7 +21,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@alilc/lowcode-plugin-base-monaco-editor": "^1.0.0",
+    "@rchh/lowcode-plugin-base-monaco-editor": "1.1.2",
     "@alifd/next": "^1.25.13",
     "classnames": "^2.3.1",
     "lodash": "^4.17.21",
@@ -31,8 +31,8 @@
   "devDependencies": {
     "@alib/build-scripts": "^0.1.32",
     "@alifd/theme-lowcode-light": "^0.2.1",
-    "@alilc/build-plugin-alt": "^1.0.0",
-    "@alilc/lowcode-types": "^1.1.2",
+    "@rchh/build-plugin-alt": "npm:@alilc/build-plugin-alt@^1.0.0",
+    "@rchh/lowcode-types": "npm:@alilc/lowcode-types@^1.1.2",
     "@recore/config": "^2.0.6",
     "@types/react": "^16.0.3",
     "build-plugin-fusion": "^0.1.19"
@@ -42,5 +42,6 @@
     "type": "git",
     "url": "https://github.com/alibaba/lowcode-plugins.git",
     "directory": "packages/plugin-schema"
-  }
+  },
+  "peerDependencies": {}
 }

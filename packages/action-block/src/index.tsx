@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { default as html2canvas } from 'html2canvas';
-import { Node, config, event } from '@alilc/lowcode-engine';
+import { Node, config, event } from '@rchh/lowcode-engine';
 import { Dialog, Form, Input } from '@alifd/next';
 import './index.scss';
 

@@ -5,7 +5,7 @@ import {
   IPublicModelWindow,
   IPublicTypeContextMenuAction,
   IPublicTypePlugin,
-} from '@alilc/lowcode-types';
+} from '@rchh/lowcode-types';
 import React from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import './index.scss';

@@ -1,4 +1,4 @@
-import { JSExpression } from '@alilc/lowcode-types';
+import { JSExpression } from '@rchh/lowcode-types';
 
 export interface IState extends JSExpression {
   // 原始代码

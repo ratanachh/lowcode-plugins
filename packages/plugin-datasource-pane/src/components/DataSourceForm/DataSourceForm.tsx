@@ -34,7 +34,7 @@ import { generateClassName } from '../../utils/misc';
 import { filterXDisplay } from '../../utils/filter-x-display';
 
 import { DataSourceFormProps, DataSourceFormMode } from '../../types';
-import { isJSExpression } from '@alilc/lowcode-types';
+import { isJSExpression } from '@rchh/lowcode-types';
 
 const SCHEMA = {
   type: 'object',

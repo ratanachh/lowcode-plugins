@@ -1,4 +1,4 @@
-import { IPublicTypeJSExpression } from '@alilc/lowcode-types';
+import { IPublicTypeJSExpression } from '@rchh/lowcode-types';
 
 export type Monaco = typeof import('monaco-editor/esm/vs/editor/editor.api');
 export type ObjectType<T = any> = Record<string, T>;

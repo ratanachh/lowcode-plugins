@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Button, MenuButton } from '@alifd/next';
-import { RuntimeDataSourceConfig as DataSourceConfig } from '@alilc/lowcode-datasource-types';
+import { RuntimeDataSourceConfig as DataSourceConfig } from '@rchh/lowcode-datasource-types';
 import _isArray from 'lodash/isArray';
 import { generateClassName } from '../../utils/misc';
 import { DataSourcePaneImportPlugin, DataSourceType, DataSourcePanelMode } from '../../types';

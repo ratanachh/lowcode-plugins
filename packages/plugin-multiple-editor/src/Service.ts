@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 import { EditorController, HookHandleFn } from './Controller';
 import { EditorHook } from './EditorHook';
-import type {IPublicApiSkeleton} from '@alilc/lowcode-types';
+import type {IPublicApiSkeleton} from '@rchh/lowcode-types';
 import { Monaco } from './types';
 
 export enum PluginHooks {

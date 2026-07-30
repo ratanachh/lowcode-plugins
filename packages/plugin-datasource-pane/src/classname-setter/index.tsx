@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Select } from '@alifd/next';
-import { common } from '@alilc/lowcode-engine';
+import { common } from '@rchh/lowcode-engine';
 
 interface Color {
   rgb: any;

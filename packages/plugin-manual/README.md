@@ -1,4 +1,4 @@
-# @alilc/lowcode-plugin-manual [![][npm-image]][npm-url]
+# @rchh/lowcode-plugin-manual [![][npm-image]][npm-url]
 
 低代码产品使用手册
 
@@ -9,8 +9,8 @@
 ### 注册插件
 
 ```jsx
-import { plugins } from '@alilc/lowcode-engine';
-import PluginManual from '@alilc/lowcode-plugin-manual';
+import { plugins } from '@rchh/lowcode-engine';
+import PluginManual from '@rchh/lowcode-plugin-manual';
 
 // 注册到引擎
 plugins.register(PluginManual);
@@ -38,5 +38,5 @@ npm i & npm start
 npm run pub
 ```
 
-[npm-image]: https://img.shields.io/badge/@alilc/lowcode-plugin-manual
-[npm-url]: https://www.npmjs.com/package/@alilc/lowcode-plugin-manual
+[npm-image]: https://img.shields.io/badge/@rchh/lowcode-plugin-manual
+[npm-url]: https://www.npmjs.com/package/@rchh/lowcode-plugin-manual

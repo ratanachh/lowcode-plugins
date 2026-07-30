@@ -1,4 +1,4 @@
-# lowcode-plugin-@alilc/lowcode-plugin-schema [![][npm-image]][npm-url]
+# lowcode-plugin-@rchh/lowcode-plugin-schema [![][npm-image]][npm-url]
 
 show lowcode schema
 查看低代码引擎 schema
@@ -10,16 +10,16 @@ show lowcode schema
 ### 注册插件
 #### 展示页面级 schema
 ```jsx
-import { plugins } from '@alilc/lowcode-engine';
-import LowcodePluginAliLowcodePluginSchema from '@alilc/lowcode-plugin-schema';
+import { plugins } from '@rchh/lowcode-engine';
+import LowcodePluginAliLowcodePluginSchema from '@rchh/lowcode-plugin-schema';
 
 // 注册到引擎
 plugins.register(LowcodePluginAliLowcodePluginSchema);
 ```
 #### 展示项目级 schema
 ```jsx
-import { plugins } from '@alilc/lowcode-engine';
-import LowcodePluginAliLowcodePluginSchema from '@alilc/lowcode-plugin-schema';
+import { plugins } from '@rchh/lowcode-engine';
+import LowcodePluginAliLowcodePluginSchema from '@rchh/lowcode-plugin-schema';
 
 // 注册到引擎
 plugins.register(LowcodePluginAliLowcodePluginSchema, { isProjectSchema: true });

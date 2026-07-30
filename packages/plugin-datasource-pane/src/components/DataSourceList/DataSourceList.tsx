@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 // import { VirtualList } from '@alifd/next';
-import { RuntimeDataSourceConfig as DataSourceConfig } from '@alilc/lowcode-datasource-types';
+import { RuntimeDataSourceConfig as DataSourceConfig } from '@rchh/lowcode-datasource-types';
 import { DroppableDataSourceListItem } from '../DataSourceListItem';
 import { createStateMachine, DataSourcePaneStateContext } from '../../utils/stateMachine';
 import { DataSourcePaneContext } from '../../utils/panel-context';

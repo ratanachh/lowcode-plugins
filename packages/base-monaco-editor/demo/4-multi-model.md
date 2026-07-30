@@ -6,7 +6,7 @@ order: 4
 ```jsx
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import SingleMonacoEditorComponent from '@alilc/lowcode-plugin-base-monaco-editor';
+import SingleMonacoEditorComponent from '@rchh/lowcode-plugin-base-monaco-editor';
 
 function App() {
   const [files, setFiles] = React.useState({

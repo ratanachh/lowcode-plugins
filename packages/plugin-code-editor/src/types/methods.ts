@@ -1,4 +1,4 @@
-import { JSFunction, JSExpression } from '@alilc/lowcode-types';
+import { JSFunction, JSExpression } from '@rchh/lowcode-types';
 export type Method = JSExpression | JSFunction & {
   source: string;
 }

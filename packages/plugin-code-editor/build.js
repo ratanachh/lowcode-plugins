@@ -7,7 +7,7 @@ module.exports = {
       },
     ],
     [
-      '@alilc/build-plugin-alt',
+      '@rchh/build-plugin-alt',
       {
         type: 'plugin',
         // 开启注入调试模式，see：https://www.yuque.com/lce/doc/ulvlkz

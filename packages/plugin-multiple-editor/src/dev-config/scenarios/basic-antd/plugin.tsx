@@ -4,18 +4,18 @@ import {
   skeleton,
   project,
   setters,
-} from '@alilc/lowcode-engine';
-import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext';
+} from '@rchh/lowcode-engine';
+import AliLowCodeEngineExt from '@rchh/lowcode-engine-ext';
 import { Button } from '@alifd/next';
-// import UndoRedoPlugin from '@alilc/lowcode-plugin-undo-redo';
-import ComponentsPane from '@alilc/lowcode-plugin-components-pane';
-import ZhEnPlugin from '@alilc/lowcode-plugin-zh-en';
-// import DataSourcePanePlugin from '@alilc/lowcode-plugin-datasource-pane';
-import SchemaPlugin from '@alilc/lowcode-plugin-schema';
-// import CodeEditor from "@alilc/lowcode-plugin-code-editor";
-// import ManualPlugin from "@alilc/lowcode-plugin-manual";
-import Inject, { injectAssets } from '@alilc/lowcode-plugin-inject';
-import SimulatorResizer from '@alilc/lowcode-plugin-simulator-select';
+// import UndoRedoPlugin from '@rchh/lowcode-plugin-undo-redo';
+import ComponentsPane from '@rchh/lowcode-plugin-components-pane';
+import ZhEnPlugin from '@rchh/lowcode-plugin-zh-en';
+// import DataSourcePanePlugin from '@rchh/lowcode-plugin-datasource-pane';
+import SchemaPlugin from '@rchh/lowcode-plugin-schema';
+// import CodeEditor from "@rchh/lowcode-plugin-code-editor";
+// import ManualPlugin from "@rchh/lowcode-plugin-manual";
+import Inject, { injectAssets } from '@rchh/lowcode-plugin-inject';
+import SimulatorResizer from '@rchh/lowcode-plugin-simulator-select';
 
 // 注册到引擎
 import TitleSetter from '@alilc/lowcode-setter-title';
@@ -53,7 +53,7 @@ export default async function registerPlugins() {
         // 修改面包屑组件的分隔符属性setter
         // const assets = await (
         //   await fetch(
-        //     `https://alifd.alicdn.com/npm/@alilc/lowcode-materials/build/lowcode/assets-prod.json`
+        //     `https://alifd.alicdn.com/npm/@rchh/lowcode-materials/build/lowcode/assets-prod.json`
         //   )
         // ).json();
         // 设置物料描述

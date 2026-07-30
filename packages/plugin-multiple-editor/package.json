@@ -1,5 +1,5 @@
 {
-  "name": "@alilc/lowcode-plugin-multiple-editor",
+  "name": "@rchh/lowcode-plugin-multiple-editor",
   "version": "0.2.0",
   "main": "es/index.js",
   "license": "MIT",
@@ -24,23 +24,23 @@
     "release": "fast-publish"
   },
   "dependencies": {
-    "@alilc/lowcode-types": "^1.0.3",
+    "@rchh/lowcode-types": "npm:@alilc/lowcode-types@^1.0.3",
     "@babel/types": "^7.16.0"
   },
   "devDependencies": {
     "@alifd/next": "^1.25.29",
-    "@alilc/lowcode-datasource-fetch-handler": "^1.0.1",
-    "@alilc/lowcode-editor-core": "^1.0.6",
-    "@alilc/lowcode-engine": "^1.0.0",
-    "@alilc/lowcode-engine-ext": "^1.0.3",
-    "@alilc/lowcode-plugin-base-monaco-editor": "1.1.0-beta.1",
-    "@alilc/lowcode-plugin-components-pane": "^1.0.2",
-    "@alilc/lowcode-plugin-inject": "^1.0.0",
-    "@alilc/lowcode-plugin-manual": "^1.0.3",
-    "@alilc/lowcode-plugin-schema": "^1.0.1",
-    "@alilc/lowcode-plugin-simulator-select": "^1.0.0",
-    "@alilc/lowcode-plugin-zh-en": "^1.0.0",
-    "@alilc/lowcode-react-renderer": "^1.0.0",
+    "@rchh/lowcode-datasource-fetch-handler": "npm:@alilc/lowcode-datasource-fetch-handler@^1.0.1",
+    "@rchh/lowcode-editor-core": "npm:@alilc/lowcode-editor-core@^1.0.6",
+    "@rchh/lowcode-engine": "npm:@alilc/lowcode-engine@^1.0.0",
+    "@rchh/lowcode-engine-ext": "npm:@alilc/lowcode-engine-ext@^1.0.3",
+    "@rchh/lowcode-plugin-base-monaco-editor": "1.1.2",
+    "@rchh/lowcode-plugin-components-pane": "2.0.4",
+    "@rchh/lowcode-plugin-inject": "npm:@alilc/lowcode-plugin-inject@^1.0.0",
+    "@rchh/lowcode-plugin-manual": "1.0.4",
+    "@rchh/lowcode-plugin-schema": "1.0.5",
+    "@rchh/lowcode-plugin-simulator-select": "1.0.4",
+    "@rchh/lowcode-plugin-zh-en": "1.0.0",
+    "@rchh/lowcode-react-renderer": "npm:@alilc/lowcode-react-renderer@^1.0.0",
     "@alilc/lowcode-setter-behavior": "^1.0.0",
     "@alilc/lowcode-setter-title": "^1.0.2",
     "@ant-design/icons": "^4.7.0",
@@ -180,5 +180,6 @@
   "fastPublish": {
     "npmClient": "npm"
   },
-  "repository": "https://github.com/alibaba/lowcode-plugins.git"
+  "repository": "https://github.com/alibaba/lowcode-plugins.git",
+  "peerDependencies": {}
 }

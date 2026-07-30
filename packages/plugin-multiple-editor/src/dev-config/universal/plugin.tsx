@@ -2,11 +2,11 @@ import React from 'react';
 import {
   plugins,
   project,
-} from '@alilc/lowcode-engine';
-import AliLowCodeEngineExt from '@alilc/lowcode-engine-ext';
+} from '@rchh/lowcode-engine';
+import AliLowCodeEngineExt from '@rchh/lowcode-engine-ext';
 import { Button } from '@alifd/next';
-import ComponentsPane from '@alilc/lowcode-plugin-components-pane';
-import Inject, { injectAssets } from '@alilc/lowcode-plugin-inject';
+import ComponentsPane from '@rchh/lowcode-plugin-components-pane';
+import Inject, { injectAssets } from '@rchh/lowcode-plugin-inject';
 
 // 注册到引擎
 import TitleSetter from '@alilc/lowcode-setter-title';
@@ -39,7 +39,7 @@ export default async function registerPlugins() {
         // 修改面包屑组件的分隔符属性setter
         // const assets = await (
         //   await fetch(
-        //     `https://alifd.alicdn.com/npm/@alilc/lowcode-materials/build/lowcode/assets-prod.json`
+        //     `https://alifd.alicdn.com/npm/@rchh/lowcode-materials/build/lowcode/assets-prod.json`
         //   )
         // ).json();
         // 设置物料描述

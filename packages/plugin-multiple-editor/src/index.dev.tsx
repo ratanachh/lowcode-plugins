@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import {
   controller,
   getMonaco,
-} from '@alilc/lowcode-plugin-base-monaco-editor';
-import { init, plugins } from '@alilc/lowcode-engine';
+} from '@rchh/lowcode-plugin-base-monaco-editor';
+import { init, plugins } from '@rchh/lowcode-engine';
 import './index.dev.less';
 import codePlugin from './index';
 import { EditorController } from './Controller';

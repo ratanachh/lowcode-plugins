@@ -1,6 +1,6 @@
-import { TransformedComponentMetadata, FieldConfig } from '@alilc/lowcode-types';
+import { TransformedComponentMetadata, FieldConfig } from '@rchh/lowcode-types';
 import { v4 as uuidv4 } from 'uuid';
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@rchh/lowcode-engine';
 
 function addonCombine(metadata: TransformedComponentMetadata) {
   const { componentName, configure = {} } = metadata;

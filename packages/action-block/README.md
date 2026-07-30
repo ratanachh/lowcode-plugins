@@ -39,8 +39,8 @@ function setupConfig() {
 # 使用方式
 
 ```
-import { material } from '@alilc/lowcode-engine';
-import { default as saveAsBlock } from '@alilc/action-block';
+import { material } from '@rchh/lowcode-engine';
+import { default as saveAsBlock } from '@rchh/action-block';
 
 material.addBuiltinComponentAction(saveAsBlock);
 ```

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { IPublicModelPluginContext } from '@rchh/lowcode-types';
 import { ResourcePaneContent } from './components/resourceTree';
 import { Behaviors } from './components/addFile/behaviors';
 import { IOptions } from '.';

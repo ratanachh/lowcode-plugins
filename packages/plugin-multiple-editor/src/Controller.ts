@@ -1,6 +1,6 @@
-import type { Project, Event } from '@alilc/lowcode-shell';
-import { IPublicTypeProjectSchema } from '@alilc/lowcode-types';
-import { skeleton } from '@alilc/lowcode-engine';
+import type { Project, Event } from '@rchh/lowcode-shell';
+import { IPublicTypeProjectSchema } from '@rchh/lowcode-types';
+import { skeleton } from '@rchh/lowcode-engine';
 import {
   beautifyCSS,
   compatGetSourceCodeMap,
@@ -12,7 +12,7 @@ import {
   treeToMap,
 } from './utils';
 import { FunctionEventParams, Monaco, ObjectType } from './types';
-import { common } from '@alilc/lowcode-engine';
+import { common } from '@rchh/lowcode-engine';
 import { editor } from 'monaco-editor';
 import {
   addFunction,
@@ -105,7 +105,7 @@ export class EditorController extends EditorHook {
     if (!this.monaco) {
       if (!this.loadMonacoPromise) {
         const { getMonaco } = await import(
-          '@alilc/lowcode-plugin-base-monaco-editor'
+          '@rchh/lowcode-plugin-base-monaco-editor'
         );
         this.loadMonacoPromise = getMonaco();
       }

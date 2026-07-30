@@ -46,7 +46,7 @@ import {
   DataSourceTypeFetch,
   DataSourceTypeJsonp,
   DataSourceTypeMtop,
-} from '@alilc/lowcode-plugin-datasource-pane';
+} from '@rchh/lowcode-plugin-datasource-pane';
 ```
 
 ## 如何定制
@@ -131,7 +131,7 @@ import _noop from 'lodash/noop';
 import _isArray from 'lodash/isArray';
 import _last from 'lodash/last';
 import _isPlainObject from 'lodash/isPlainObject';
-import { RuntimeDataSourceConfig as DataSourceConfig } from '@alilc/lowcode-datasource-types';
+import { RuntimeDataSourceConfig as DataSourceConfig } from '@rchh/lowcode-datasource-types';
 import { JSONSchema6 } from 'json-schema';
 import type { ComponentType } from 'react';
 export interface DataSourceType {

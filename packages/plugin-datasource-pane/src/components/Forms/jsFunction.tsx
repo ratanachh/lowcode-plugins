@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from '@formily/react';
-import { JSFunction as IJSFunction } from '@alilc/lowcode-types';
-import MonacoEditor from '@alilc/lowcode-plugin-base-monaco-editor';
+import { JSFunction as IJSFunction } from '@rchh/lowcode-types';
+import MonacoEditor from '@rchh/lowcode-plugin-base-monaco-editor';
 import _noop from 'lodash/noop';
 // import { editor } from 'monaco-editor';
 

@@ -1,4 +1,4 @@
-# @alilc/lowcode-plugin-zh-cn [![][npm-image]][npm-url]
+# @rchh/lowcode-plugin-zh-cn [![][npm-image]][npm-url]
 为设计提供在高级设置面板中设置ref-id的能力
 plugin for setting ref-id.
 
@@ -8,8 +8,8 @@ plugin for setting ref-id.
 
 ### 注册插件
 ```jsx
-import { plugins } from '@alilc/lowcode-engine';
-import SetRefPropPlugin from '@alilc/lowcode-plugin-set-ref-prop';
+import { plugins } from '@rchh/lowcode-engine';
+import SetRefPropPlugin from '@rchh/lowcode-plugin-set-ref-prop';
 
 // 注册到引擎
 plugins.register(SetRefPropPlugin);

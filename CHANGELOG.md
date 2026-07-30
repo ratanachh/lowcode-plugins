@@ -72,7 +72,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * 兼容没有 prototype 的情况 ([e442436](https://gitlab.alibaba-inc.com/ali-lowcode/ali-lowcode-engine/commit/e4424364403aa53e5eef4c2ede284285de93cc6a))
 * 参照 vision 的实现, ignore 只影响 save 阶段, 不影响画布渲染 ([9411c9d](https://gitlab.alibaba-inc.com/ali-lowcode/ali-lowcode-engine/commit/9411c9d9a02e919babf3c50c5cbf3d0bbb4fea64))
 * 在压缩态没有类名, 换个方式实现 ([f874823](https://gitlab.alibaba-inc.com/ali-lowcode/ali-lowcode-engine/commit/f874823502acc50cee050bb150dec11906644fad))
-* 改成从 @alilc/lowcode-engine 引入 ([866b957](https://gitlab.alibaba-inc.com/ali-lowcode/ali-lowcode-engine/commit/866b957f37c792192d792cd7a295d91139a37e94))
+* 改成从 @rchh/lowcode-engine 引入 ([866b957](https://gitlab.alibaba-inc.com/ali-lowcode/ali-lowcode-engine/commit/866b957f37c792192d792cd7a295d91139a37e94))
 * 跳过 JSExpression 并带有 events 的初始化流程 ([37809e7](https://gitlab.alibaba-inc.com/ali-lowcode/ali-lowcode-engine/commit/37809e71e8309c8c686f14bcc050013c5c705c09))
 * 跳过 JSSlot 类型的快捷设值 ([ab45c0f](https://gitlab.alibaba-inc.com/ali-lowcode/ali-lowcode-engine/commit/ab45c0f2558e4d548b485567430c29f42b236f7e))
 * 还是将 dropLocation 设为非响应式变量, 基于性能考量 ([2acc70a](https://gitlab.alibaba-inc.com/ali-lowcode/ali-lowcode-engine/commit/2acc70a4226ce81ae5f7321e6c1c0e768103694d))

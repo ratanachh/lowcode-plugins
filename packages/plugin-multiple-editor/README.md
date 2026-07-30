@@ -5,9 +5,9 @@
 ## Demo
 
 ```ts
-import multipleFileCodeEditorFactory from '@alilc/lowcode-plugin-multiple-editor';
+import multipleFileCodeEditorFactory from '@rchh/lowcode-plugin-multiple-editor';
 
-import { PrettierPlugin } from '@alilc/lowcode-plugin-multiple-editor/es/plugins/prettier-plugin';
+import { PrettierPlugin } from '@rchh/lowcode-plugin-multiple-editor/es/plugins/prettier-plugin';
 
 
 const PLUGIN_NAME = 'multiple-file-code-editor';
@@ -60,6 +60,6 @@ await plugins.register(plugin);
 
 __使用单例模式__
 ```ts
-import { configure } from '@alilc/lowcode-plugin-base-monaco-editor';
+import { configure } from '@rchh/lowcode-plugin-base-monaco-editor';
 configure({ singleton: true });
 ```

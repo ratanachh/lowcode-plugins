@@ -1,4 +1,4 @@
-# @alilc/plugin-view-manager-pane [![][npm-image]][npm-url]
+# @rchh/plugin-view-manager-pane [![][npm-image]][npm-url]
 
 ---
 
@@ -6,8 +6,8 @@
 
 ### 注册插件
 ```jsx
-import { plugins } from '@alilc/lowcode-engine';
-import PluginUndoRedo from '@alilc/plugin-view-manager-pane';
+import { plugins } from '@rchh/lowcode-engine';
+import PluginUndoRedo from '@rchh/plugin-view-manager-pane';
 
 // 注册到引擎
 plugins.register(PluginUndoRedo);

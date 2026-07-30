@@ -1,4 +1,4 @@
-import { RuntimeDataSourceConfig as DataSourceConfig } from '@alilc/lowcode-datasource-types';
+import { RuntimeDataSourceConfig as DataSourceConfig } from '@rchh/lowcode-datasource-types';
 import { DataSourceType } from './DataSourceType';
 
 // 导入插件
