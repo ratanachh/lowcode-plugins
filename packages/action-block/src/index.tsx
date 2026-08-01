@@ -3,6 +3,7 @@ import { default as html2canvas } from 'html2canvas';
 import { Node, config, event } from '@rchh/lowcode-engine';
 import { Dialog, Form, Input } from '@alifd/next';
 import './index.scss';
+import { intl } from './locale';
 
 const FormItem = Form.Item;
 
@@ -57,7 +58,7 @@ const SaveAsBlock = (props: SaveAsBlockProps) => {
     <Form colon>
       <FormItem
         name="name"
-        label="英文名"
+        label={intl('EnglishName')}
         required
         requiredMessage="Please input name!"
       >
@@ -65,7 +66,7 @@ const SaveAsBlock = (props: SaveAsBlockProps) => {
       </FormItem>
       <FormItem
         name="title"
-        label="中文名"
+        label={intl('ChineseName')}
         required
         requiredMessage="Please input title!"
       >
@@ -73,7 +74,7 @@ const SaveAsBlock = (props: SaveAsBlockProps) => {
       </FormItem>
       <FormItem
         name="screenshot"
-        label="缩略图"
+        label={intl('Screenshot')}
       >
         <div className='block-screenshot'>
 
@@ -88,9 +89,9 @@ const SaveAsBlock = (props: SaveAsBlockProps) => {
           onClick={save}
           style={{ marginRight: 8 }}
         >
-          保存
+          {intl('Save')}
         </Form.Submit>
-        <Form.Reset>重置</Form.Reset>
+        <Form.Reset>{intl('Reset')}</Form.Reset>
       </FormItem>
     </Form>
   </div>
@@ -104,12 +105,12 @@ export default {
       type: 'add',
       size: 'xs'
     },
-    title: '新增',
+    title: intl('Add'),
     action(node: Node) {
       // console.log('node: ', node);
       dialog = Dialog.show({
         v2: true,
-        title: "保存为区块",
+        title: intl('SaveAsBlock'),
         content: <SaveAsBlock node={node} />,
         footer: false
       });

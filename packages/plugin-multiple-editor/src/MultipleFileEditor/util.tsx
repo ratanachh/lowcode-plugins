@@ -19,7 +19,7 @@ export const getDefaultFileList = (
   useLess?: boolean
 ): ObjectType<string> => {
   const sourceCodeMap = rootSchema?.componentsTree?.[0]?._sourceCodeMap || {};
-  const { files } = compatGetSourceCodeMap(sourceCodeMap); // 兼容旧格式
+  const { files } = compatGetSourceCodeMap(sourceCodeMap); // backwards compatible with the legacy format
   if (files['index.js']) {
     files['index.js'] = compatIndexContent(files['index.js']);
   }
@@ -106,7 +106,7 @@ export async function addFunction(
     return;
   }
   let count = monacoEditor.getModel()?.getLineCount() ?? 0;
-  // 找到倒数第一个非空行
+  // Find the last non-empty line
   while (!monacoEditor.getModel()?.getLineContent(count)) {
     count--;
   }
@@ -120,7 +120,7 @@ export async function addFunction(
     { range, text: functionCode, forceMoveMarkers: true },
   ]);
 
-  // 延迟定位光标到函数名称
+  // Move the cursor to the function name on the next tick
   setTimeout(() => {
     params.functionName && focusByFunctionName(monacoEditor, params, monaco);
   }, 50);

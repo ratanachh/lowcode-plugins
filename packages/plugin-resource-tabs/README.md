@@ -3,21 +3,21 @@
 
 ---
 
-## 使用
+## Usage
 
-### 注册插件
+### Register the plugin
 ```jsx
 import { plugins } from '@rchh/lowcode-engine';
 import PluginResourceTabs from '@rchh/lowcode-plugin-resource-tabs';
 
-// 注册到引擎
+// Register with the engine
 plugins.register(PluginResourceTabs);
 ```
 
-### 插件属性 & 方法
+### Plugin properties & methods
 
 #### appKey
-- description: '唯一标识，用于缓存应用 Tab'
+- description: 'Unique identifier used to cache the application tabs'
 - type: 'string'
 
 ### tabClassName
@@ -31,9 +31,9 @@ plugins.register(PluginResourceTabs);
 - type: 'function',
 - description: 'tabs sort function',
 
-### 依赖插件
+### Plugin dependencies
 
-该插件依赖以下插件：
+This plugin depends on the following plugins:
 
-| 插件名 | 包名 |
+| Plugin name | Package name |
 | --- | --- |

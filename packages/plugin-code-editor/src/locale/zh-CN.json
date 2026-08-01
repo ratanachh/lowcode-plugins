@@ -1,0 +1,14 @@
+{
+  "CodeParseError": "代码解析异常",
+  "ErrorBoundaryDetail": "详细错误",
+  "ErrorBoundaryTitle": "出错了~",
+  "FunctionParseError": "部分函数解析出错，其内容无法保存，请重新编辑后关闭面板以保存。",
+  "GeneralParseError": "当前的代码解析出错，代码内容将无法保存，请重新编辑后关闭面板以保存。",
+  "IrreparableState": "当前 Schema 中 State 数据格式无法恢复，请手工订正！",
+  "Retry": "重试",
+  "Save": "保存",
+  "SaveSuccess": "源码保存成功！",
+  "SourcePane": "源码面板",
+  "Title": "源码编辑",
+  "UnknownReason": "未知原因"
+}

@@ -9,7 +9,7 @@ import { ObjectType } from './types';
 
 export interface CompilerCtrOpts {
   files: ObjectType<string>;
-  entry?: string; // 入口文件名，默认 index.js
+  entry?: string; // entry file name, defaults to index.js
   presets?: any[];
   plugins?: any[];
   clearDefault?: boolean;
@@ -66,7 +66,7 @@ export class Compiler {
         ${Object.keys(this.compiledMap)
     .map((k) => {
       let finalContent = JSON.stringify(this.compiledMap[k]);
-      // 所有 js 文件，替换 this为固定字符串（避免引擎对this的处理影响）
+      // Replace `this` with a fixed string in every js file so the engine's own `this` handling does not interfere
       finalContent = finalContent.replace(/this/g, 'CODE_PLACEHOLDER');
 
       return `['${k}']: ${finalContent},`;

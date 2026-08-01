@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { project } from '@rchh/lowcode-engine';
 import { Button, Icon } from '@alifd/next';
 import { PluginProps, IPublicTypeDisposable, IPublicModelPluginContext } from '@rchh/lowcode-types';
+import { intl } from './locale';
 
 import './index.scss';
 
@@ -66,7 +67,7 @@ class UndoRedo extends PureComponent<IProps, IState> {
       <div className="lowcode-plugin-undo-redo">
         <Button
           size="medium"
-          data-tip="撤销"
+          data-tip={intl('Undo')}
           data-dir="bottom"
           onClick={this.handleUndoClick}
           ghost
@@ -76,7 +77,7 @@ class UndoRedo extends PureComponent<IProps, IState> {
         </Button>
         <Button
           size="medium"
-          data-tip="恢复"
+          data-tip={intl('Redo')}
           data-dir="bottom"
           onClick={this.handleRedoClick}
           ghost
@@ -91,13 +92,13 @@ class UndoRedo extends PureComponent<IProps, IState> {
 
 const plugin = (ctx: IPublicModelPluginContext) => {
   return {
-    // 插件名，注册环境下唯一
+    // Plugin name, unique within the registration environment
     name: 'PluginUndoRedo',
-    // 依赖的插件（插件名数组）
+    // Plugins this one depends on (array of plugin names)
     dep: [],
-    // 插件的初始化函数，在引擎初始化之后会立刻调用
+    // Plugin initializer, called right after the engine has been initialized
     init() {
-      // 往引擎增加面板
+      // Add a pane to the engine
       ctx.skeleton.add({
         area: 'topArea',
         type: 'Widget',

@@ -45,7 +45,7 @@ class MonacoEditor extends PureComponent<MonacoEditorProps> {
     if (prevProps.theme !== this.props.theme) {
       this.editor?.updateOptions({ theme: this.props.theme });
     }
-    // 恢复上个文件的编辑状态（鼠标位置、选择等）
+    // Restore the editing state of the previous file (cursor position, selection, etc.)
     if (prevProps.filePath !== this.props.filePath) {
       this.editor?.focus();
       requestAnimationFrame(() => {
@@ -94,7 +94,7 @@ class MonacoEditor extends PureComponent<MonacoEditorProps> {
       const { selection } = input.options;
       if (result === null) {
         this.props.onGotoFile?.(input.resource?.path);
-        // 定位到对应文件位置
+        // Jump to the matching position in the file
         setTimeout(() => {
           const position = {
             lineNumber: selection.startLineNumber,
@@ -118,7 +118,7 @@ class MonacoEditor extends PureComponent<MonacoEditorProps> {
     this.editor = editorInstance;
     this.initMonaco();
     this.props.onEditorMount?.(editorInstance, monaco);
-    // blur 时记录下当前的编辑状态
+    // Record the current editing state on blur
     editorInstance.onDidBlurEditorWidget(() => {
       this.viewStatusMap[this.props.filePath || ''] =
         editorInstance.saveViewState();

@@ -3,6 +3,7 @@ import { EditorPluginInterface, Service } from '@/Service';
 import icon from './prettier.png';
 import { HookKeys } from '@/EditorHook';
 import { Message } from '@alifd/next';
+import { intl } from '../../locale';
 
 export class PrettierPlugin implements EditorPluginInterface {
   private service!: Service;
@@ -11,7 +12,7 @@ export class PrettierPlugin implements EditorPluginInterface {
     this.service = service;
     this.service.registerAction({
       key: 'format',
-      title: '格式化',
+      title: intl('FormatCode'),
       icon: <img src={icon} alt="" />,
       action: () => {
         const currentFile = service.controller.codeEditorCtx?.currentFile;
@@ -49,7 +50,7 @@ export class PrettierPlugin implements EditorPluginInterface {
             file: file?.fullPath,
             content: formatted,
           });
-          Message.success('格式化代码成功');
+          Message.success(intl('FormatSuccess'));
         }
       },
       priority: 1,

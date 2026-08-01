@@ -1,4 +1,6 @@
 import React from 'react';
+import enUS from '../locale/en-US.json';
+import zhCN from '../locale/zh-CN.json';
 
 interface I18nString {
   type: 'i18n';
@@ -51,6 +53,13 @@ export interface IgnoreComponents {
   [key: string]: string[];
 }
 
+type LocaleKey = keyof typeof enUS;
+
+/** Builds an I18nData value from the locale files, so every call yields a fresh object. */
+export function i18nText(key: LocaleKey): Text {
+  return createI18n(zhCN[key], enUS[key]);
+}
+
 export default function transform(raw: any, t: (input: Text) => string) {
   let groupList: Text[] = [];
   let categoryList: Text[] = [];
@@ -60,7 +69,7 @@ export default function transform(raw: any, t: (input: Text) => string) {
   if (raw?.groupList?.length) {
     groupList = raw.groupList;
   } else {
-    groupList = [createI18n('组件', 'Components')];
+    groupList = [i18nText('Components')];
   }
   if (raw?.ignoreComponents) {
     ignoreComponents = raw.ignoreComponents;
@@ -68,7 +77,7 @@ export default function transform(raw: any, t: (input: Text) => string) {
 
   const snippets: SnippetMeta[] = [];
   const groups: SortedGroups[] = [];
-  // 如果 assets 有 sort 属性，则表示为符合新协议规范的 assets
+  // A `sort` property on the assets means they follow the new protocol
   if (raw?.sort?.groupList && raw?.sort?.categoryList) {
     const map = {} as any;
     groupList = raw.sort.groupList;
@@ -81,7 +90,7 @@ export default function transform(raw: any, t: (input: Text) => string) {
         snippet.id = `${t(component.group)}_${t(component.category)}_${component.componentName}_${snippet.title}`;
         snippets.push(snippet);
       });
-      const { group = createI18n('默认分组', 'DefaultGroup'), category, priority: componentPriority = 0 } = component;
+      const { group = i18nText('DefaultGroup'), category, priority: componentPriority = 0 } = component;
       component.group = group;
       component.priority = componentPriority;
       const indexOfCategory = categoryList.indexOf(category);
@@ -199,7 +208,7 @@ export default function transform(raw: any, t: (input: Text) => string) {
 
 function flatten(item) {
   if (typeof item === 'object') {
-    // 带children，当做分组处理
+    // Items with children are treated as a group
     if (item?.children?.length) {
       return item.children.map((c) => ({
         category: item.title,
@@ -220,9 +229,9 @@ function formatSort(item) {
   const useDefaultCategory = !category;
 
   item.sort = {
-    group: createI18n('组件', 'Components'),
+    group: i18nText('Components'),
     ...sort,
-    category: category || createI18n('其他', 'Others'),
+    category: category || i18nText('Others'),
     priority: useDefaultCategory ? -1 : sort.priority,
   };
 

@@ -1,6 +1,6 @@
 /**
- * 源码导入插件
- * @todo editor 关联 types，并提供详细的出错信息
+ * Source code import plugin
+ * @todo associate types with the editor and provide detailed error messages
  */
 import React, { PureComponent } from 'react';
 import { Button, Message } from '@alifd/next';
@@ -13,6 +13,7 @@ import type { editor } from 'monaco-editor';
 import { RuntimeDataSourceConfig as DataSourceConfig } from '@rchh/lowcode-datasource-types';
 import Ajv from 'ajv';
 import { DataSourcePaneImportPluginComponentProps } from '../../types';
+import { intl } from '../../locale';
 
 import './index.scss';
 
@@ -45,15 +46,15 @@ export class DataSourceImportPluginCode extends PureComponent<
   };
 
   /* @author daifuyang
-  ** @description：修复默认panel ref没有submit方法
+  ** @description fixes the default panel ref missing a submit method
   */
   submit = () => {
     return new Promise((resolve, reject) => {
       const { isCodeValid, code } = this.state;
 
-      if (!isCodeValid) reject(new Error('导入格式有误'));
+      if (!isCodeValid) reject(new Error(intl('InvalidImportFormat')));
 
-      // 只 resolve 通过 schema 校验的数据
+      // Only resolve the data that passes schema validation
       resolve(this.deriveValue(JSON.parse(code)));
     });
   };
@@ -75,7 +76,7 @@ export class DataSourceImportPluginCode extends PureComponent<
 
     let result = value;
     if (_isPlainObject(result)) {
-      // 如果是对象则转化成数组
+      // Wrap a plain object into an array
       result = [result];
     } else if (!_isArray(result)) {
       return [];
@@ -89,7 +90,7 @@ export class DataSourceImportPluginCode extends PureComponent<
         (type) => type.type === dataSource.type,
       );
       if (!dataSourceType) return false;
-      // 处理下默认为空的情况，向下兼容
+      // Fall back to an empty schema for backwards compatibility
       return ajv.validate(dataSourceType.schema || {}, dataSource);
     });
   };
@@ -101,7 +102,7 @@ export class DataSourceImportPluginCode extends PureComponent<
           .getModelMarkers()
           .find((marker: editor.IMarker) => marker.owner === 'json')
       ) {
-        Message.success("检验成功，点击右上方确定完成导入！")
+        Message.success(intl('ValidateSuccess'));
         this.setState({ isCodeValid: true });
         // const model: any = _last(this.monacoRef.getModels());
         // if (!model) return;
@@ -125,7 +126,7 @@ export class DataSourceImportPluginCode extends PureComponent<
   };
 
   /* @author daifuyang
-  ** @description：修复编辑器挂载事件
+  ** @description fixes the editor mount event
   */
   handleEditorDidMount = (editor: MonacoEditor, monaco: MonacoEditor) => {
     this.monacoRef = editor?.editor;
@@ -149,11 +150,11 @@ export class DataSourceImportPluginCode extends PureComponent<
           onChange={this.handleEditorChange}
           editorDidMount={this.handleEditorDidMount}
         />
-        {!isCodeValid && <p className="error-msg">格式有误</p>}
+        {!isCodeValid && <p className="error-msg">{intl('InvalidFormat')}</p>}
         <p className="btns">
-          <Button onClick={onCancel}>取消</Button>
+          <Button onClick={onCancel}>{intl('Cancel')}</Button>
           <Button type="primary" onClick={this.handleComplete}>
-            检验
+            {intl('Validate')}
           </Button>
         </p>
       </div>

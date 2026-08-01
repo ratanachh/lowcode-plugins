@@ -1,10 +1,11 @@
 import { IPublicModelPluginContext } from '@rchh/lowcode-types';
 import ComponentsPane from './pane';
+import { intl } from './locale';
 const ComponentPanelPlugin = (ctx: IPublicModelPluginContext) => {
   return {
     async init() {
       const { skeleton, project } = ctx;
-      // 注册组件面板
+      // Register the components pane
       const componentsPane = skeleton.add({
         area: 'leftArea',
         type: 'PanelDock',
@@ -14,7 +15,7 @@ const ComponentPanelPlugin = (ctx: IPublicModelPluginContext) => {
         props: {
           align: 'top',
           icon: 'zujianku',
-          description: '组件库',
+          description: intl('ComponentLibrary'),
         },
       });
       componentsPane?.disable?.();

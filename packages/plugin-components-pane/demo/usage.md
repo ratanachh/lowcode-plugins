@@ -3,7 +3,7 @@ title: Usage
 order: 1
 ---
 
-用法
+Usage
 
 ````jsx
 import React, { Component } from 'react';
@@ -30,8 +30,8 @@ class App extends Component {
         type: 'dock',
         name: 'trunk',
         width: 300,
-        title: '零售云 - 在线设计',
-        description: '组件库',
+        title: 'Retail Cloud - Online Design',
+        description: 'Component library',
         menu: <PaneIcon />,
         content: ComponentPane,
         props: {

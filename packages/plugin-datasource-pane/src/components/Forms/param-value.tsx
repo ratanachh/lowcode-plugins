@@ -19,6 +19,7 @@ import cn from 'classnames';
 import { EditorContext } from '../../utils/editor-context';
 import { generateClassName, safeParse } from '../../utils/misc';
 import { JSONComp } from './json';
+import { intl } from '../../locale';
 import './param-value.scss';
 
 const { Group: RadioGroup } = Radio;
@@ -58,12 +59,12 @@ function isBoolean(val: boolean | string) {
 }
 
 const TYPE_LABEL_MAP = {
-  string: '字符串',
-  number: '数字',
-  boolean: '布尔',
-  expression: '表达式',
-  jsonstring: '对象字符串',
-  json: '对象',
+  string: intl('TypeString'),
+  number: intl('TypeNumber'),
+  boolean: intl('TypeBoolean'),
+  expression: intl('TypeExpression'),
+  jsonstring: intl('TypeJsonString'),
+  json: intl('TypeJson'),
 };
 
 class ParamValueComp extends PureComponent<ParamValueProps, ParamValueState> {
@@ -98,7 +99,7 @@ class ParamValueComp extends PureComponent<ParamValueProps, ParamValueState> {
     return 'string';
   };
 
-  // @todo 需要再 bind 一次？
+  // @todo does this need to be bound again?
   handleChange = (value: any) => {
     const { type } = this.state;
     if (type === 'json') {

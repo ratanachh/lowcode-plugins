@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef, CSSProperties } from 'react';
 import { Monaco } from '@monaco-editor/loader';
 import type { editor as oEditor } from 'monaco-editor';
 import { getMonaco } from './monaco';
+import { intl } from './locale';
 
 // @todo fill type def for monaco editor without refering monaco editor
 /**
@@ -57,8 +58,7 @@ export interface IDiffMonacoEditorProps extends IGeneralManacoEditorProps {
   original?: string;
 }
 
-const CURRENT_LANGUAGE = ((window as any).locale || window.localStorage.getItem('vdev-locale') || '').replace(/_/, '-') || 'zh-CN';
-export const WORD_EDITOR_INITIALIZING = CURRENT_LANGUAGE === 'en-US' ? 'Initializing Editor' : '编辑器初始化中';
+export const WORD_EDITOR_INITIALIZING = intl('EditorInitializing');
 
 export const INITIAL_OPTIONS: oEditor.IStandaloneEditorConstructionOptions = {
   fontSize: 12,
@@ -169,7 +169,7 @@ export const useEditor = <T = IEditorInstance>(type: 'single' | 'diff', props: I
     setLoading(true);
     getMonaco(requireConfigRef.current)
       .then((monaco: Monaco) => {
-        // 兼容旧版本 monaco-editor 写死 MonacoEnvironment 的问题
+        // Work around older monaco-editor versions hard-coding MonacoEnvironment
         (window as any).MonacoEnvironment = undefined;
         if (typeof (window as any).define === 'function' && (window as any).define.amd) {
           // make monaco-editor's loader work with webpack's umd loader

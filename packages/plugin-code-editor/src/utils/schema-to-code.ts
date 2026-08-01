@@ -21,7 +21,7 @@ export const schema2JsCode = (schema: ProjectSchema) => {
   const componentSchema = schema.componentsTree[0];
   const code = componentSchema?.originCode ?? initCode(componentSchema);
 
-  // console.log('当前的code：', code);
+  // console.log('current code:', code);
   return code;
 };
 
@@ -77,7 +77,7 @@ function initMethodsCode(componentSchema: RootSchema | undefined) {
     return codeList.join('');
   } else {
     return `
-      // 你可以在这里编写函数，并且与组件的事件进行绑定，支持JSX语法
+      // Write functions here and bind them to component events; JSX syntax is supported
       testFunc() {
         console.log('test aliLowcode func');
         return (
@@ -92,12 +92,12 @@ function initMethodsCode(componentSchema: RootSchema | undefined) {
 
 function createFunctionCode(functionName: string, functionNode: Method) {
   if (functionNode?.type === 'JSExpression' || functionNode?.type === 'JSFunction') {
-    // 读取原始代码
+    // Read the original code
     let functionCode = functionNode.source;
     if (functionCode) {
       functionCode = functionCode.replace(/function/, '');
     } else {
-      // 兼容历史数据
+      // Backwards compatibility with legacy data
       functionCode = functionNode.value?.replace(/function/, functionName);
     }
     return functionCode;

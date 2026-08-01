@@ -13,6 +13,7 @@ import { JSFunction } from './jsFunction';
 import { RemoveBtn } from './form-lazy-obj-remove-btn';
 import { generateClassName } from '../../utils/misc';
 import { isJSFunction } from '@rchh/lowcode-types';
+import { intl } from '../../locale';
 
 const { Item: MenuButtonItem } = MenuButton;
 
@@ -22,14 +23,14 @@ export interface FormLazyObjProps {
 }
 
 export const FormLazyObj = observer((props: FormLazyObjProps) => {
-  const { addText = '添加' } = props;
+  const { addText = intl('Add') } = props;
 
   const field = useField<VoidField>();
 
   const schema = useFieldSchema();
 
   const [selectedProperties, setSelectedProperties] = useState<string[]>(() => {
-    // 自动回填数据处理函数
+    // Automatically restore the previously configured data handlers
     return Object.keys(schema.properties || {}).filter(property => {
       return isJSFunction(field.form.values[property])
     })
@@ -48,7 +49,7 @@ export const FormLazyObj = observer((props: FormLazyObjProps) => {
     setSelectedProperties((selectedProperties) => selectedProperties.concat(propertyKey));
   }, []);
 
-  /* 改成formily内部支持 */
+  /* Switch to formily's built-in support */
   const handleRemove = useCallback((propertyKey) => {
     field?.form?.query(propertyKey)?.take()?.setState((state) => {
       state.visible = !state.visible;

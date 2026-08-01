@@ -1,6 +1,7 @@
 import React from 'react';
 import { NumberPicker, Icon } from '@alifd/next';
 import { IPublicModelPluginContext } from '@rchh/lowcode-types';
+import { intl } from './locale';
 
 import './index.scss';
 
@@ -46,7 +47,7 @@ export class SimulatorResizePane extends React.Component<{
   change = (device: string) => {
     const { project } = this.props.pluginContext;
     const simulator = project.simulatorHost;
-    // 切换画布
+    // Switch the canvas
     simulator?.set('device', device);
     if (document.querySelector('.lc-simulator-canvas')?.style) {
       document.querySelector('.lc-simulator-canvas').style.width = null;
@@ -96,7 +97,7 @@ export class SimulatorResizePane extends React.Component<{
             className="lp-simulator-width-input"
             addonTextAfter="px"
             value={currentWidth}
-            placeholder="请输入"
+            placeholder={intl('WidthPlaceholder')}
             onChange={(value) => {
               this.setState({
                 currentWidth: value
@@ -125,15 +126,15 @@ const plugin = (ctx: IPublicModelPluginContext) => {
   const SimulatorResizePaneRef = React.createRef<SimulatorResizePane>();
 
   return {
-    // 插件的初始化函数，在引擎初始化之后会立刻调用
+    // Plugin initializer, called right after the engine has been initialized
     init() {
-      // 往引擎增加工具条
+      // Add a toolbar to the engine
       ctx.skeleton.add({
         area: 'topArea',
         name: 'SimulatorResizePane',
         type: 'Widget',
         props: {
-          description: '切换画布尺寸',
+          description: intl('SwitchCanvasSize'),
           align: 'center',
         },
         content: (

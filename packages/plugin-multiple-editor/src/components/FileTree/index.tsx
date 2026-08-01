@@ -14,6 +14,7 @@ import fullscreenIcon from './img/fullscreen.svg';
 import fullscreenExitIcon from './img/fullscreen-exit.svg';
 import compileIcon from './img/compile.svg';
 import { PluginAction } from '@/Service';
+import { intl } from '../../locale';
 
 export interface FileTreeProps {
   dir?: Dir;
@@ -35,26 +36,26 @@ function validate(
 ) {
   const { type, path } = data;
   if (/\\|\//.test(name)) {
-    return '非法命名';
+    return intl('InvalidName');
   }
   if (name === 'modules') {
-    return 'modules 为内置关键字，不允许使用';
+    return intl('ModulesReserved');
   }
   const finalNode: Dir | undefined = getFileOrDirTarget(fileTree, path);
   if (finalNode) {
     const targetDir: any[] =
       type === 'file' ? finalNode?.files : finalNode.dirs;
     if (targetDir.find((t: any) => t.name === name)) {
-      return '文件或文件夹已存在';
+      return intl('FileOrFolderExists');
     }
   }
   if (data.type === 'file' && name.endsWith('.less') && name !== 'index.less') {
-    return 'less 文件仅支持创建 index.less';
+    return intl('OnlyIndexLess');
   }
   if (data.type === 'file') {
     return name && /\.(js|less)$/.test(name)
       ? undefined
-      : '文件名必填且未js后缀';
+      : intl('FileNameRequired');
   }
 }
 
@@ -141,7 +142,7 @@ const FileTree: FC<FileTreeProps> = ({
   const handleDelete = useCallback<HandleDeleteFn>(
     (path, target) => {
       Dialog.confirm({
-        title: '确定删除？',
+        title: intl('ConfirmDelete'),
         onOk() {
           updateFileTreeByPath(path, target, 'delete');
         },
@@ -149,25 +150,25 @@ const FileTree: FC<FileTreeProps> = ({
     },
     [updateFileTreeByPath]
   );
-  let title = tmp.type === 'file' ? '新建文件' : '新建文件夹';
+  let title = tmp.type === 'file' ? intl('NewFile') : intl('NewFolder');
   if (tmp.operation === 'rename') {
-    title = tmp.type === 'file' ? '重命名文件' : '重命名文件夹';
+    title = tmp.type === 'file' ? intl('RenameFile') : intl('RenameFolder');
   }
   return (
     <div className={cls('ilp-file-bar', className)}>
       <h4 className="ilp-file-bar-title">
-        <span>文件目录</span>
+        <span>{intl('FileDirectory')}</span>
         <span>
           <img
             src={fullscreen ? fullscreenExitIcon : fullscreenIcon}
-            alt={fullscreen ? '退出全屏' : '全屏'}
-            title={fullscreen ? '退出全屏' : '全屏'}
+            alt={fullscreen ? intl('ExitFullscreen') : intl('Fullscreen')}
+            title={fullscreen ? intl('ExitFullscreen') : intl('Fullscreen')}
             onClick={() => onFullscreen?.(!fullscreen)}
           />
           <img
             src={compileIcon}
-            alt="编译代码"
-            title="编译代码"
+            alt={intl('CompileCode')}
+            title={intl('CompileCode')}
             onClick={onSave}
           />
           {actions?.map((item) => (
@@ -205,10 +206,10 @@ const FileTree: FC<FileTreeProps> = ({
       >
         <Form>
           <Form.Item
-            label={tmp.type === 'file' ? '文件名' : '文件夹名'}
+            label={tmp.type === 'file' ? intl('FileName') : intl('FolderName')}
             name="name"
             required
-            requiredMessage="必填"
+            requiredMessage={intl('Required')}
           >
             <Input
               autoFocus

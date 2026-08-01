@@ -20,7 +20,7 @@ export interface CssEditorState {
   code: string;
 }
 
-// TODO: CSS语法提示后续再添加
+// TODO: add CSS syntax hints later
 export class CssEditor extends PureComponent<CssEditorProps, CssEditorState> {
   static defaultProps: Partial<CssEditorProps>;
 
@@ -37,7 +37,7 @@ export class CssEditor extends PureComponent<CssEditorProps, CssEditorState> {
   getBeautifiedCSS() {
     const { code } = this.state;
     const nextCode = beautifyCSS(code);
-    // css 将会经过格式化，因此需要同步回来
+    // The CSS gets formatted, so sync the result back
     this.setState({
       code: nextCode,
     });
@@ -58,7 +58,7 @@ export class CssEditor extends PureComponent<CssEditorProps, CssEditorState> {
             key={TAB_KEY.CSS}
             onClick={() => this.props.onTabChange(TAB_KEY.CSS)}
           />
-          {/** 当以后需要扩展多文件时，在这里控制 */}
+          {/** Multi-file support would be controlled here */}
         </Tab>
         {this.props.currentTab === TAB_KEY.CSS && (
           <div className="plugin-code-editor-css plugin-code-editor-inner">

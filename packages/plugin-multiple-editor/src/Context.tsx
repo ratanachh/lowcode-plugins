@@ -136,7 +136,7 @@ export const EditorProvider: FC<{
           target.name = newName as string;
         }
         const payload: Partial<StoreState> = { fileTree: sortDir(fileTree) };
-        // 新增文件时，选中当前文件
+        // Select the newly created file
         if (target.type === 'file' && operation === 'add') {
           payload.currentFile = { file: target as File, path };
         } else if (target.type === 'file' && operation === 'delete') {

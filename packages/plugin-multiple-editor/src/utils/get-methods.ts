@@ -61,16 +61,16 @@ export const getMethods = (fileContent: string) => {
             if (p.type === 'Identifier') {
               return identifier(p.name);
             } else {
-              // 解构语法，或者 ...args
-              // 直接返回 ...args，不需要额外的构造
+              // Destructuring syntax or ...args
+              // Return it as-is, no extra construction needed
               return p;
             }
           }) as any[],
           /**
-           * 所有js文件都会经过编译
-           * 那么实际上在收集方法的时候只需调用 index.js 默认导出的类的原型方法即可。
-           * constructor 由于其特殊性，仍走远来的逻辑
-           * 只有多其他方法走这个转换
+           * Every js file goes through compilation, so when collecting methods it is enough to call the
+           * prototype methods of the class exported by default from index.js.
+           * The constructor is special and keeps the original behaviour;
+           * only the other methods go through this transformation.
            */
           // name === 'constructor'
           //   ? body

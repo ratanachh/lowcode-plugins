@@ -1,30 +1,30 @@
 [
   {
     "name": "index",
-    "title": "综合场景"
+    "title": "Combined scenario"
   },
   {
     "name": "basic-fusion",
-    "title": "基础 fusion 组件"
+    "title": "Basic fusion components"
   },
   {
     "name": "basic-fusion-with-single-component",
-    "title": "基础 fusion 组件 + 单自定义组件"
+    "title": "Basic fusion components + one custom component"
   },
   {
     "name": "basic-antd",
-    "title": "基础 antd 组件"
+    "title": "Basic antd components"
   },
   {
     "name": "custom-initialization",
-    "title": "自定义初始化引擎"
+    "title": "Custom engine initialization"
   },
   {
     "name": "node-extended-actions",
-    "title": "扩展节点操作项"
+    "title": "Extended node actions"
   },
   {
     "name": "next-pro",
-    "title": "基于next实现的高级表单低代码物料"
+    "title": "Advanced form lowcode materials built on next"
   }
 ]

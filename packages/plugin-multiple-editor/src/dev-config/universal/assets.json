@@ -16,7 +16,7 @@
       ]
     },
     {
-      "title": "fusion组件库",
+      "title": "Fusion component library",
       "package": "@alifd/next",
       "version": "1.24.18",
       "urls": [
@@ -113,27 +113,27 @@
   ],
   "sort": {
     "groupList": [
-      "精选组件",
-      "原子组件"
+      "Featured components",
+      "Atomic components"
     ],
     "categoryList": [
-      "基础元素",
-      "布局容器类",
-      "表格类",
-      "表单详情类",
-      "帮助类",
-      "对话框类",
-      "业务类",
-      "通用",
-      "引导",
-      "信息输入",
-      "信息展示",
-      "信息反馈"
+      "Basic elements",
+      "Layout containers",
+      "Tables",
+      "Forms and details",
+      "Help",
+      "Dialogs",
+      "Business",
+      "General",
+      "Guides",
+      "Data entry",
+      "Data display",
+      "Feedback"
     ]
   },
   "groupList": [
-    "精选组件",
-    "原子组件"
+    "Featured components",
+    "Atomic components"
   ],
   "ignoreComponents": {}
 }

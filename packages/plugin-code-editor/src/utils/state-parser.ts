@@ -32,7 +32,7 @@ export const stateParser = (ast: Node) => {
               state[property.key.name ?? property.key.extra.rawValue] = {
                 type: 'JSExpression',
                 value: compiledCode.replace('var name = ', '').replace(/;$/, ''),
-                // 这里的 originalCode 直接放在全局，不挂在局部
+                // originalCode lives at the top level rather than locally
                 // originCode: codeStr.replace('var name = ', '').replace(/;$/, ''),
               };
             }

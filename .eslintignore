@@ -1,4 +1,4 @@
-# 忽略目录
+# Ignore directories
 node_modules
 test-cases
 test
@@ -12,7 +12,7 @@ tests
 .*
 ~*
 
-# 忽略文件
+# Ignore files
 **/*.min.js
 **/*-min.js
 **/*.bundle.js

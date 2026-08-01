@@ -1,7 +1,7 @@
 {
   "name": "@rchh/lowcode-plugin-components-pane",
   "version": "2.0.4",
-  "description": "低代码组件面板",
+  "description": "Lowcode components pane",
   "files": [
     "es/",
     "lib/"
@@ -26,13 +26,14 @@
       "name": "gray.wjf"
     },
     {
-      "name": "金禅"
+      "name": "Jinchan"
     }
   ],
   "license": "ISC",
   "devDependencies": {
     "@alib/build-scripts": "^0.1.32",
     "@alifd/next": "^1.23.12",
+    "@rchh/build-plugin-alt": "npm:@alilc/build-plugin-alt@^1.0.0",
     "@svgr/webpack": "^5.5.0",
     "@types/react": "^16.9.13",
     "@types/react-dom": "^16.9.4",
@@ -44,7 +45,6 @@
     "f2elint": "^1.2.0",
     "html-webpack-plugin": "^5.3.2",
     "moment": "^2.29.1",
-    "@rchh/build-plugin-alt": "npm:@alilc/build-plugin-alt@^1.0.0",
     "react-dom": "^16.0.0"
   },
   "husky": {
@@ -54,6 +54,8 @@
     }
   },
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@rchh/lowcode-editor-core": "npm:@alilc/lowcode-editor-core@^1.0.6",
     "@rchh/lowcode-types": "npm:@alilc/lowcode-types@^1.0.0",
     "classnames": "^2.3.1",
     "lodash.debounce": "^4.0.8",

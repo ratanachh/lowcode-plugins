@@ -7,10 +7,11 @@ import {
   isArrowFunctionExpression,
 } from '@babel/types';
 import { traverse } from '../ghostBabel';
+import { intl } from '../../locale';
 
 export function lintIndex(content: string) {
   let valid = true;
-  let validMsg = '不允许在 index.js 的组件类外定义变量或使用表达式';
+  let validMsg = intl('LintNoTopLevelVar');
 
   traverse(content, {
     Program(path) {
@@ -18,15 +19,15 @@ export function lintIndex(content: string) {
         if (!isExportDefaultDeclaration(node) && !isImportDeclaration(node)) {
           valid = false;
           if (isExportDeclaration(node)) {
-            validMsg = '只允许index.js内默认导出，禁止命名导出';
+            validMsg = intl('LintNamedExport');
             return;
           }
           if (isVariableDeclaration(node)) {
-            validMsg = '不允许在 index.js 的组件类外定义变量';
+            validMsg = intl('LintNoVarOutsideClass');
             return;
           }
           if (isFunctionDeclaration(node)) {
-            validMsg = '不允许在 index.js 的组件类外定义函数';
+            validMsg = intl('LintNoFuncOutsideClass');
             return;
           }
         }
@@ -35,7 +36,7 @@ export function lintIndex(content: string) {
     ClassProperty(path) {
       if (isArrowFunctionExpression(path.node.value)) {
         valid = false;
-        validMsg = '不允许在组件类中使用箭头函数定义类方法';
+        validMsg = intl('LintNoArrowMethod');
       }
     },
   });

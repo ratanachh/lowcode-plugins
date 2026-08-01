@@ -13,7 +13,7 @@ export function findEditorMatch(
     false
   )?.[0];
   if (!matchRes) {
-    // 箭头函数
+    // Arrow function
     matchRes = model.findMatches(
       `\\s*${method}\\s*=\\s*(async)?\\s*\\([\\s\\S]*\\)\\s*=>[\\s\\S]*\\{`,
       false,

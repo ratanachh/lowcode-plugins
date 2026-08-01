@@ -24,17 +24,17 @@ export interface IOptions {
   skeletonConfig?: IPublicTypeSkeletonConfig;
 
   /**
-   * 右键菜单项
+   * Context menu items
    */
   contextMenuActions?: (ctx: IPublicModelPluginContext) => IPublicTypeContextMenuAction[];
 
   /**
-   * 右键资源项，菜单项
+   * Context menu items of a resource
    */
   resourceContextMenuActions?: (ctx: IPublicModelPluginContext, resource: IPublicModelResource) => IPublicTypeContextMenuAction[];
 
   /**
-   * 右键资源组，菜单项
+   * Context menu items of a resource group
    */
   resourceGroupContextMenuActions?: (ctx: IPublicModelPluginContext, resources: IPublicModelResource[]) => IPublicTypeContextMenuAction[];
 }
@@ -44,10 +44,10 @@ const ViewManagerPane = (
   options: IOptions = {}
 ) => {
   return {
-    // 插件的初始化函数，在引擎初始化之后会立刻调用
+    // Plugin initializer, called right after the engine has been initialized
     async init() {
       const showIconText = options.showIconText ?? true;
-      // 往引擎增加面板
+      // Add a pane to the engine
       ctx.skeleton.add({
         area: 'leftArea',
         name: 'ViewManagerPane',
@@ -76,13 +76,13 @@ const ViewManagerPane = (
   };
 };
 
-// 插件名，注册环境下唯一
+// Plugin name, unique within the registration environment
 ViewManagerPane.pluginName = 'ViewManagerPane';
 ViewManagerPane.meta = {
-  // 依赖的插件（插件名数组）
+  // Plugins this one depends on (array of plugin names)
   dependencies: [],
   engines: {
-    lowcodeEngine: '^1.3.0', // 插件需要配合 ^1.0.0 的引擎才可运行
+    lowcodeEngine: '^1.3.0', // The plugin requires an engine of version ^1.0.0 or above
   },
   preferenceDeclaration: {
     title: intl('view_manager.src.ViewManagementPanelPlugIn'),
@@ -110,17 +110,17 @@ ViewManagerPane.meta = {
       {
         key: 'contextMenuActions',
         type: 'function',
-        description: '右键菜单项',
+        description: intl('view_manager.src.ContextMenuActions'),
       },
       {
         key: 'resourceContextMenuActions',
         type: 'function',
-        description: '右键资源项，菜单项',
+        description: intl('view_manager.src.ResourceContextMenuActions'),
       },
       {
         key: 'resourceGroupContextMenuActions',
         type: 'function',
-        description: '右键资源组，菜单项',
+        description: intl('view_manager.src.ResourceGroupContextMenuActions'),
       },
       {
         key: 'filterResourceList',

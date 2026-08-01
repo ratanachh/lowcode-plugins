@@ -2,7 +2,7 @@
   "name": "@rchh/lowcode-plugin-manual",
   "author": "humphry.huang9@gmail.com",
   "version": "1.0.4",
-  "description": "低代码产品使用手册",
+  "description": "User manual for the lowcode product",
   "main": "lib/index.js",
   "module": "es/index.js",
   "README": "README.md",
@@ -18,7 +18,9 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@rchh/lowcode-editor-core": "npm:@alilc/lowcode-editor-core@^1.0.6"
+  },
   "peerDependencies": {
     "react": "^16.0.0"
   },

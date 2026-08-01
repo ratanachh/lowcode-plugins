@@ -23,7 +23,7 @@ export function getConstructorContent(oldCtr: string) {
       ${executableScript};
     }`;
   } else {
-    // 将可执行代码插入 constructor 最上面
+    // Insert the executable code at the top of the constructor
     return oldCtr.replace(
       /function +constructor\([a-zA-Z\-_]*\) *\{/,
       `function constructor() {\n${executableScript}\n`
@@ -32,7 +32,7 @@ export function getConstructorContent(oldCtr: string) {
 }
 
 /**
- * 确保为 index.js 添加上 constructor
+ * Makes sure index.js has a constructor
  * @param content
  * @returns
  */
@@ -46,7 +46,7 @@ export function ensureCtrForIndex(content: string): string {
       }
     },
   });
-  // 如果没有constructor，添加上一个默认的constructor
+  // Add a default constructor when there is none
   if (!hasConstructor) {
     traverse(ast, {
       ClassDeclaration({ node }) {

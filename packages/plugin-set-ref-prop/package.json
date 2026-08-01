@@ -20,6 +20,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
+    "@rchh/lowcode-editor-core": "npm:@alilc/lowcode-editor-core@^1.0.6",
     "@rchh/lowcode-types": "npm:@alilc/lowcode-types@^1.0.0",
     "@rchh/lowcode-utils": "npm:@alilc/lowcode-utils@^1.0.0",
     "react": "^16.8.1",

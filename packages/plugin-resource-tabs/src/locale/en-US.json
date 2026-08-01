@@ -4,5 +4,7 @@
   "resource_tabs.src.DiscardChanges": "Discard changes",
   "resource_tabs.src.ContinueEditing": "Continue editing",
   "resource_tabs.src.ApplicationTagColumnPlugIn": "Application tag column plug-in parameter definition",
-  "resource_tabs.src.UniqueIdentifierForCachingApplication": "Unique identifier for caching application tabs"
+  "resource_tabs.src.UniqueIdentifierForCachingApplication": "Unique identifier for caching application tabs",
+  "resource_tabs.src.ContextMenuActions": "Context menu items",
+  "resource_tabs.src.TabContextMenuActions": "Tab context menu items"
 }

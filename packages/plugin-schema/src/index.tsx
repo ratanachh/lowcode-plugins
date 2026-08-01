@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { IPublicModelPluginContext } from '@rchh/lowcode-types';
 import PluginSchema from './editor';
-import { enUS, zhCN } from './locale';
+import { enUS, zhCN, intl } from './locale';
 
 const plugin = (ctx: IPublicModelPluginContext, options: any) => {
   return {
-    // 插件的初始化函数，在引擎初始化之后会立刻调用
+    // Plugin initializer, called right after the engine has been initialized
     init() {
       const { intl, intlNode, getLocale } = ctx.common.utils.createIntl({
         'en-US': enUS,
@@ -16,7 +16,7 @@ const plugin = (ctx: IPublicModelPluginContext, options: any) => {
       ctx.getLocale = getLocale;
       const isProjectSchema = (options && options['isProjectSchema']) === true;
 
-      // 往引擎增加面板
+      // Add a pane to the engine
       ctx.skeleton.add({
         area: 'leftArea',
         name: 'LowcodePluginAliLowcodePluginSchema',
@@ -43,12 +43,12 @@ const plugin = (ctx: IPublicModelPluginContext, options: any) => {
 plugin.pluginName = 'LowcodePluginAliLowcodePluginSchema';
 plugin.meta = {
   preferenceDeclaration: {
-    title: 'schema 面板配置',
+    title: intl('SchemaPanePreferenceTitle'),
     properties: [
       {
         key: 'isProjectSchema',
         type: 'boolean',
-        description: '是否是项目级 schema',
+        description: intl('IsProjectSchema'),
         default: false,
       },
     ],

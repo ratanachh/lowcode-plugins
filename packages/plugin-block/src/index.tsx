@@ -1,43 +1,44 @@
 import * as React from 'react';
 import { IPublicModelPluginContext } from '@rchh/lowcode-types';
 import { default as BlockPane } from './pane';
+import { intl } from './locale';
 
 const LowcodePluginCusPlugin = (ctx: IPublicModelPluginContext) => {
   return {
-    // 插件名，注册环境下唯一
+    // Plugin name, unique within the registration environment
     name: 'LowcodePluginCusPlugin',
-    // 依赖的插件（插件名数组）
+    // Plugins this one depends on (array of plugin names)
     dep: [],
-    // 插件对外暴露的数据和方法
+    // Data and methods exposed by the plugin
     exports() {
       return {
-        data: '你可以把插件的数据这样对外暴露',
+        data: 'This is how a plugin can expose its data',
         func: () => {
-          console.log('方法也是一样');
+          console.log('Methods work the same way');
         },
       }
     },
-    // 插件的初始化函数，在引擎初始化之后会立刻调用
+    // Plugin initializer, called right after the engine has been initialized
     init() {
-      // 你可以拿到其他插件暴露的方法和属性
+      // Methods and properties exposed by other plugins are available here
       // const { data, func } = ctx.plugins.pluginA;
       // func(); 
 
       // console.log(options.name);
 
-      // 往引擎增加面板
+      // Add a pane to the engine
       ctx.skeleton.add({
         area: 'leftArea',
         name: 'blockPane',
         type: 'PanelDock',
         props: {
           icon: <img src='https://i.ablula.tech/portal/block.svg' style={{ filter: 'brightness(1)' }} />,
-          description: '区块面板',
+          description: intl('BlockPane'),
         },
         content: BlockPane,
       });
 
-      ctx.logger.log('打个日志');
+      ctx.logger.log('Log something');
     },
   };
 };

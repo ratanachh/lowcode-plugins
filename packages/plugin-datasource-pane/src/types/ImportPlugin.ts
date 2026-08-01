@@ -1,7 +1,7 @@
 import { RuntimeDataSourceConfig as DataSourceConfig } from '@rchh/lowcode-datasource-types';
 import { DataSourceType } from './DataSourceType';
 
-// 导入插件
+// Import plugin
 export interface DataSourcePaneImportPlugin {
   name: string;
   title: string;

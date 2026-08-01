@@ -4,11 +4,12 @@ import _findIndex from 'lodash/findIndex';
 import _isUndefined from 'lodash/isUndefined';
 
 /**
- * 合并两个对象数组，如果指定了 KEY，当存在 KEY 值相同的情况，将第一个对象数组里的对象替换
- * @param list1 待合并的第一个对象数组
- * @param list2 待合并的第二个对象数组
- * @param key 判断是否覆盖的对象 KEY
- * @param returns 合并后的对象数组
+ * Merges two object arrays. When a key is given, objects from the first array are replaced by
+ * objects from the second array that share the same key value.
+ * @param list1 the first object array to merge
+ * @param list2 the second object array to merge
+ * @param key the object key used to decide whether to override
+ * @param returns the merged object array
  */
 export function mergeTwoObjectListByKey(
   list1: Array<Record<string, unknown>>,

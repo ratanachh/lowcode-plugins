@@ -7,6 +7,7 @@ import fileIcon from './img/file.png';
 import menuIcon from './img/menu.png';
 import deleteIcon from './img/delete.png';
 import renameIcon from './img/rename.png';
+import { intl } from '../../../locale';
 
 import './index.less';
 
@@ -60,14 +61,14 @@ const TreeNode: FC<TreeNodeProps> = ({
   modifiedKeys,
   disableAction,
 }) => {
-  const [expand, setExpand] = useState(dir.name === '/'); // 根目录默认展开
+  const [expand, setExpand] = useState(dir.name === '/'); // the root directory is expanded by default
   const levelStyle = useMemo(() => ({ paddingLeft: level * 8 }), [level]);
   const dirActions = useMemo(() => {
     const key = getKey(parentKey, dir.name);
     const path = parseKey(key).path;
     const baseActions = [
       {
-        title: '新建文件夹',
+        title: intl('NewFolder'),
         action: () => {
           setExpand(true);
           onAdd?.('dir', path);
@@ -75,18 +76,18 @@ const TreeNode: FC<TreeNodeProps> = ({
         id: 'dir',
       },
       {
-        title: '新建文件',
+        title: intl('NewFile'),
         action: () => {
           onAdd?.('file', path);
         },
         id: 'file',
       },
     ];
-    // 根目录不能删除
+    // The root directory cannot be deleted
     if (parentKey) {
       baseActions.push(
         {
-          title: '删除目录',
+          title: intl('DeleteFolder'),
           action: () => {
             path.pop();
             onDelete?.(path, dir);
@@ -94,7 +95,7 @@ const TreeNode: FC<TreeNodeProps> = ({
           id: 'delete',
         },
         {
-          title: '修改目录名',
+          title: intl('RenameFolderName'),
           action: () => {
             path.pop();
             onRename?.('dir', path, dir);
@@ -172,7 +173,7 @@ const TreeNode: FC<TreeNodeProps> = ({
               placement="rt"
             >
               <span className="help-tooltips">
-                内置模块，不可操作文件，内容修改不会影响最终结果
+                {intl('BuiltinModuleTip')}
               </span>
             </Overlay.Popup>
           )}

@@ -2,6 +2,7 @@ import { createMachine, interpret, assign } from 'xstate';
 import { RuntimeDataSourceConfig as DataSourceConfig } from '@rchh/lowcode-datasource-types';
 import _uniqueId from 'lodash/uniqueId';
 import { DataSourceType } from '../types';
+import { intl } from '../locale';
 
 export interface DataSourcePaneStateContext {
   dataSourceList: DataSourceConfig[];
@@ -130,8 +131,8 @@ export const createStateMachine = (dataSourceList: DataSourceConfig[] = []) => c
                 detail: (context, event) => {
                   return {
                     visible: true,
-                    title: '导出',
-                    // okText: '创建',
+                    title: intl('Export'),
+                    // okText: intl('Create'),
                     target: 'export',
                     data: event.payload,
                   };
@@ -161,7 +162,7 @@ export const createStateMachine = (dataSourceList: DataSourceConfig[] = []) => c
                   target: 'idle',
                   actions: assign({
                     dataSourceList: (context, event) => {
-                      // 直接 concat 会出现重复
+                      // A plain concat would introduce duplicates
                       const filterDataSourceList = context.dataSourceList.filter((item) => {
                         return !event.payload.find(
                           (dataSource: DataSourceConfig) => dataSource.id === item.id,
@@ -294,8 +295,8 @@ export const createStateMachine = (dataSourceList: DataSourceConfig[] = []) => c
           actions: assign({
             detail: (context, event) => ({
               visible: true,
-              title: `创建数据源 ${event.dataSourceType.type}`,
-              okText: '创建',
+              title: intl('CreateDataSource', { type: event.dataSourceType.type }),
+              okText: intl('Create'),
               // target: 'FINISH_CREATE',
               data: {
                 dataSourceType: event.dataSourceType,
@@ -315,7 +316,7 @@ export const createStateMachine = (dataSourceList: DataSourceConfig[] = []) => c
               );
               return {
                 visible: true,
-                title: `编辑数据源 ${dataSourceType.type}`,
+                title: intl('EditDataSource', { type: dataSourceType.type }),
                 data: {
                   dataSource,
                   dataSourceType,
@@ -333,9 +334,9 @@ export const createStateMachine = (dataSourceList: DataSourceConfig[] = []) => c
               );
               return {
                 visible: true,
-                title: '查看数据源',
+                title: intl('ViewDataSource'),
                 ok: false,
-                cancelText: '关闭',
+                cancelText: intl('Close'),
                 data: {
                   dataSource,
                   dataSourceType: event.dataSourceTypes.find(
@@ -355,7 +356,7 @@ export const createStateMachine = (dataSourceList: DataSourceConfig[] = []) => c
               );
               return {
                 visible: true,
-                title: '复制数据源',
+                title: intl('DuplicateDataSource'),
                 data: {
                   dataSource: {
                     ...dataSource,
@@ -385,7 +386,7 @@ export const createStateMachine = (dataSourceList: DataSourceConfig[] = []) => c
             detail: (context, event) => {
               return {
                 visible: true,
-                title: '导入',
+                title: intl('Import'),
                 data: {
                   pluginName: event.pluginName,
                 },

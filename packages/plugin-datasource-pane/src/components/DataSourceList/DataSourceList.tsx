@@ -6,6 +6,7 @@ import { createStateMachine, DataSourcePaneStateContext } from '../../utils/stat
 import { DataSourcePaneContext } from '../../utils/panel-context';
 import { generateClassName } from '../../utils/misc';
 import { DataSourceInfoTag } from '../../types';
+import { intl } from '../../locale';
 
 export interface DataSourceListProps {
   dataSource: DataSourceConfig[];
@@ -22,28 +23,28 @@ interface DataSourceListState {
 
 const OPERATIONS = [
   {
-    title: '查看',
+    title: intl('View'),
     icon: 'eye',
     type: 'view',
     disabled: false,
     visible: true,
   },
   {
-    title: '编辑',
+    title: intl('Edit'),
     icon: 'edit',
     type: 'edit',
     disabled: false,
     visible: true,
   },
   {
-    title: '删除',
+    title: intl('Delete'),
     icon: 'ashbin',
     type: 'remove',
     disabled: false,
     visible: true,
   },
   {
-    title: '复制',
+    title: intl('Duplicate'),
     icon: 'copy',
     type: 'duplicate',
     disabled: false,
@@ -107,7 +108,7 @@ export class DataSourceList extends PureComponent<
     }));
     if (dataSource.length === 0) {
       return (
-        <span className={generateClassName('list-empty')}>没有找到数据源</span>
+        <span className={generateClassName('list-empty')}>{intl('NoDataSourceFound')}</span>
       );
     }
     return (
@@ -135,7 +136,7 @@ export class DataSourceList extends PureComponent<
   };
 
   handleStartDrag = (dragId: string) => {
-    // TODO 响应两次
+    // TODO fires twice
     // console.log('start drag', dragId);
     this.setState({ dragId });
     // this.setState({ dataSource: this.state.dataSource.slice() });

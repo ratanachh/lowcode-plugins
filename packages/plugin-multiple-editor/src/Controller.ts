@@ -22,6 +22,7 @@ import {
 } from './MultipleFileEditor/util';
 import { EditorContextType } from './Context';
 import { Message } from '@alifd/next';
+import { intl } from './locale';
 import { getMethods } from './utils/get-methods';
 import { EditorHook, HookKeys } from './EditorHook';
 import { PluginHooks, Service } from './Service';
@@ -204,20 +205,20 @@ export class EditorController extends EditorHook {
     const schema = this.project.exportSchema(
       common.designerCabin.TransformStage.Save
     );
-    // 导出的时候重新编译一下，避免没有打开编辑器的时候直接保存值没有编译代码的情况
+    // Recompile on export so that saving without ever opening the editor still produces compiled code
     const fileMap = this.codeEditorCtx?.fileTree
       ? treeToMap(this.codeEditorCtx.fileTree)
-      : this.codeTemp?._sourceCodeMap.files; // 获取最新的fileMap
+      : this.codeTemp?._sourceCodeMap.files; // read the latest fileMap
     if (fileMap && !pure) {
       try {
         if (!this.compileSourceCode(fileMap)) {
-          // 下面会导致整个页面挂掉，先作为弱依赖，给个提示
-          throw new Error('编译失败');
+          // Failing hard here would take down the whole page, so treat it as a soft failure and warn
+          throw new Error(intl('CompileFailed'));
         }
         Object.assign(schema.componentsTree[0], this.codeTemp);
       } catch (error) {
         console.error(error);
-        Message.error('源码编译失败，请返回修改');
+        Message.error(intl('SourceCompileFailed'));
       }
     }
     return schema;
@@ -227,7 +228,7 @@ export class EditorController extends EditorHook {
     this.project.importSchema(schema);
     this.initCodeTempBySchema(schema);
     this.triggerHook(HookKeys.onImport, schema);
-    // 文件树发生改变
+    // The file tree changed
     this.triggerHook(
       HookKeys.onSourceCodeChange,
       (schema as any).componentsTree[0]?._sourceCodeMap
@@ -321,7 +322,7 @@ export class EditorController extends EditorHook {
     }, 100);
   }
 
-  // 编译并保存源码
+  // Compile and save the source code
   compileSourceCode(fileMap: any, softSave = true) {
     const { valid, validMsg } = lintIndex(fileMap['index.js']);
     if (!valid) {
@@ -339,14 +340,14 @@ export class EditorController extends EditorHook {
     pageNode.methods = methods;
     pageNode.lifeCycles = lifeCycles;
     const lessContent = fileMap['index.less'];
-    // 没有less文件，走之前的逻辑
+    // Without a less file, fall back to the previous behaviour
     if (!lessContent) {
       pageNode.css = beautifyCSS(fileMap['index.css'] || '', {});
     }
     if (this.useLess && lessContent) {
       window.less?.render(lessContent, {}, (err: any, output: any) => {
         if (err) {
-          Message.error('less 编译失败');
+          Message.error(intl('LessCompileFailed'));
           console.error(err);
         }
         pageNode.css = output?.css || '';
@@ -359,7 +360,7 @@ export class EditorController extends EditorHook {
         value: 'function constructor() { }',
       } as any;
     }
-    // 编译工具函数
+    // Compile the utility functions
     (lifeCycles as any).constructor.value = getConstructorContent(
       (lifeCycles.constructor as any).value as any
     );
@@ -381,7 +382,7 @@ export class EditorController extends EditorHook {
         Object.assign(schema.componentsTree[0], pageNode);
       }
       this.project.importSchema(schema);
-      Message.success('保存成功');
+      Message.success(intl('SaveSuccess'));
     }
     return true;
   }
@@ -390,7 +391,7 @@ export class EditorController extends EditorHook {
     this.codeEditorCtx?.updateState({ modifiedKeys: [] });
   }
 
-  // 添加一堆文件
+  // Add a batch of files
   public addFiles(fileMap: ObjectType<string>) {
     if (!Object.keys(fileMap || {}).length || !this.codeEditorCtx?.fileTree) {
       return;

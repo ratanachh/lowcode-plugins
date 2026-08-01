@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/indent */
 /**
- * 源码导入插件
- * @todo editor 关联 types，并提供详细的出错信息
+ * Source code import plugin
+ * @todo associate types with the editor and provide detailed error messages
  */
 import React, { PureComponent } from 'react';
 import _isArray from 'lodash/isArray';
@@ -12,6 +12,7 @@ import type { editor } from 'monaco-editor';
 import { RuntimeDataSourceConfig as DataSourceConfig } from '@rchh/lowcode-datasource-types';
 import Ajv from 'ajv';
 import { DataSourcePaneImportPluginComponentProps } from '../../types';
+import { intl } from '../../locale';
 
 // import './import-plugins/code.scss';
 
@@ -56,9 +57,9 @@ export class DataSourceImport extends PureComponent<
     return new Promise((resolve, reject) => {
       const { isCodeValid, code } = this.state;
 
-      if (!isCodeValid) reject(new Error('导入格式有误'));
+      if (!isCodeValid) reject(new Error(intl('InvalidImportFormat')));
 
-      // 只 resolve 通过 schema 校验的数据
+      // Only resolve the data that passes schema validation
       resolve(this.deriveValue(JSON.parse(code)));
     });
   };
@@ -80,7 +81,7 @@ export class DataSourceImport extends PureComponent<
 
     let result = value;
     if (_isPlainObject(result)) {
-      // 如果是对象则转化成数组
+      // Wrap a plain object into an array
       result = [result];
     } else if (!_isArray(result)) {
       return [];
@@ -97,22 +98,22 @@ export class DataSourceImport extends PureComponent<
 
       if (!dataSourceType) return false;
 
-      // 向下兼容
+      // Backwards compatibility
       if (dataSourceType.schema) {
-        // 校验失败的数据源，给予用户提示
+        // Warn the user about data sources that fail validation
         const validate = ajv.compile(dataSourceType.schema)
         const valid = validate(dataSource)
         if (!valid) console.warn(validate.errors)
         return valid
       } else {
-        // 用户不传入 schema 校验规则，默认返回 true
+        // When no schema validation rule is provided, accept the data source
         return true
       }
     });
   };
 
   /**
-   * 看代码是未使用到
+   * Appears to be unused.
    * @deprecated
    */
   handleComplete = () => {
@@ -164,7 +165,7 @@ export class DataSourceImport extends PureComponent<
           onChange={this.handleEditorChange}
           editorDidMount={this.handleEditorDidMount}
         />
-        {!isCodeValid && <p className="error-msg">格式有误</p>}
+        {!isCodeValid && <p className="error-msg">{intl('InvalidFormat')}</p>}
       </div>
     );
   }

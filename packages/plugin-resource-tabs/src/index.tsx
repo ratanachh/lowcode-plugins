@@ -304,11 +304,11 @@ interface IOptions {
   shape?: 'pure' | 'wrapped' | 'text' | 'capsule';
   tabClassName?: string;
   /**
-   * 右键菜单项
+   * Context menu items
    */
   contextMenuActions: (ctx: IPublicModelPluginContext) => IPublicTypeContextMenuAction[];
   /**
-   * 右键 Tab 菜单项
+   * Tab context menu items
    */
   tabContextMenuActions: (ctx: IPublicModelPluginContext, resource: IPublicModelResource) => IPublicTypeContextMenuAction[];
 }
@@ -370,17 +370,17 @@ resourceTabs.meta = {
       {
         key: 'contextMenuActions',
         type: 'function',
-        description: '右键菜单项',
+        description: intl('resource_tabs.src.ContextMenuActions'),
       },
       {
         key: 'tabContextMenuActions',
         type: 'function',
-        description: '右键 Tab 菜单项',
+        description: intl('resource_tabs.src.TabContextMenuActions'),
       }
     ],
   },
   engines: {
-    lowcodeEngine: '^1.3.0', // 插件需要配合 ^1.0.0 的引擎才可运行
+    lowcodeEngine: '^1.3.0', // The plugin requires an engine of version ^1.0.0 or above
   },
 };
 

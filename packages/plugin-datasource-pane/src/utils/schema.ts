@@ -13,8 +13,8 @@ export const DATASOURCE_HANDLER_NAME_LIST = [
 ];
 
 /**
- * 协议是否合法
- * @param schema 协议
+ * Whether the schema is valid
+ * @param schema the schema
  */
 export function isSchemaValid(schema: any) {
   if (!_isPlainObject(schema)) return false;
@@ -36,9 +36,9 @@ export function isSchemaValid(schema: any) {
 }
 
 /**
- * 纠正协议
- * @param schema 原协议
- * @param schema 纠正后的协议
+ * Corrects the schema
+ * @param schema the original schema
+ * @param schema the corrected schema
  */
 export function correctSchema(schema: any) {
   if (!_isPlainObject(schema)) return { list: [] };

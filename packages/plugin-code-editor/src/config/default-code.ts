@@ -1,6 +1,6 @@
 export const defaultCode = `
   export default class Page extends Component {
-    // 可以在 state 中定义搭建所需要的 State
+    // Define the state your page needs here
     state = {
       test: 1,
       aaa: 2

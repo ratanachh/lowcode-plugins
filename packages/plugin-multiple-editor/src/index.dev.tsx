@@ -107,7 +107,7 @@ async function initEditor(el: any) {
     locale: 'zh-CN',
     enableCondition: true,
     enableCanvasLock: true,
-    // 默认绑定变量
+    // Variables bound by default
     supportVariableGlobally: true,
   } as any);
 }

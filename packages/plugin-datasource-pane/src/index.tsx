@@ -5,6 +5,7 @@ import {
   DataSourceType,
 } from './types';
 import { IPublicModelPluginContext } from '@rchh/lowcode-types';
+import { intl } from './locale';
 
 export interface Options {
   importPlugins?: DataSourcePaneImportPlugin[];
@@ -12,18 +13,18 @@ export interface Options {
   exportPlugins?: DataSourcePaneImportPlugin[];
 }
 
-// TODO: 2.0插件传参修改，不支持直接options: Options
+// TODO: the 2.0 plugin argument shape changed and no longer supports a bare `options: Options`
 const plugin = (ctx: IPublicModelPluginContext, options: Options) => {
   return {
     name: 'com.alibaba.lowcode.datasource.pane',
     width: 300,
-    // 依赖的插件（插件名数组）
+    // Plugins this one depends on (array of plugin names)
     dep: [],
-    // 插件对外暴露的数据和方法
+    // Data and methods exposed by the plugin
     exports() {
       return {};
     },
-    // 插件的初始化函数，在引擎初始化之后会立刻调用
+    // Plugin initializer, called right after the engine has been initialized
     init() {
       const dataSourceTypes = ctx.preference.getPreferenceValue('dataSourceTypes') || options.dataSourceTypes;
       const importPlugins = ctx.preference.getPreferenceValue('importPlugins') || options.importPlugins;
@@ -33,11 +34,11 @@ const plugin = (ctx: IPublicModelPluginContext, options: Options) => {
         type: 'PanelDock',
         props: {
           icon: 'shujuyuan',
-          description: '数据源',
+          description: intl('DataSource'),
         },
         panelProps: {
           width: '300px',
-          // title: '源码面板',
+          // title: 'Source code pane',
         },
         content: DataSourcePanePlugin,
         contentProps: {
@@ -61,7 +62,7 @@ const plugin = (ctx: IPublicModelPluginContext, options: Options) => {
 plugin.pluginName = 'DataSourcePane';
 plugin.meta = {
   preferenceDeclaration: {
-    title: '数据源面板插件参数定义',
+    title: intl('PluginPreferenceTitle'),
     properties: [{
       key: 'importPlugins',
       type: 'array',
@@ -69,7 +70,7 @@ plugin.meta = {
     }, {
       key: 'dataSourceTypes',
       type: 'array',
-      description: '数据源类型',
+      description: intl('DataSourceType'),
     }],
   },
 };

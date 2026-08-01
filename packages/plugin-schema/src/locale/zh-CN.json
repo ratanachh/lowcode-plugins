@@ -1,3 +1,5 @@
 {
-  "Save Schema": "保存 Schema"
+  "Save Schema": "保存 Schema",
+  "SchemaPanePreferenceTitle": "schema 面板配置",
+  "IsProjectSchema": "是否是项目级 schema"
 }

@@ -2,6 +2,7 @@ import React, { Component, ErrorInfo, Suspense } from 'react';
 import { Loading, Message, Button } from '@alifd/next';
 
 import './ErrorBoundary.less';
+import { intl } from '../../locale';
 
 interface ErrorBoundaryProps {
   onCatch?: (error: Error, info: ErrorInfo) => void;
@@ -39,11 +40,11 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
       return <Suspense fallback={<Loading visible />}>{children}</Suspense>;
     }
     return (
-      <Message title="出错了~" type="error">
-        <p>详细错误: {errorInfo || '未知原因'}</p>
+      <Message title={intl('ErrorBoundaryTitle')} type="error">
+        <p>{intl('ErrorBoundaryDetail')}: {errorInfo || intl('UnknownReason')}</p>
         <div className="plugin-code-editor-errorBoundary-actions">
           <Button onClick={this._handleReset} size="small">
-            重试
+            {intl('Retry')}
           </Button>
         </div>
       </Message>

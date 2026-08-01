@@ -3,6 +3,7 @@ import MonacoEditor from '@/components/MonacoEditor';
 import Outline from '@/components/Outline';
 import { useEditorContext } from '../Context';
 import { Dialog, Message } from '@alifd/next';
+import { intl } from '../locale';
 import cls from 'classnames';
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import './index.less';
@@ -16,7 +17,7 @@ import type { editor } from 'monaco-editor';
 import { Monaco } from '../types';
 import { PluginHooks } from '@/Service';
 
-// 最大最小宽（带工具栏）
+// Minimum and maximum width (including the toolbar)
 const MINWIDTH = 246;
 const MAXWIDTH = 446;
 
@@ -66,13 +67,13 @@ const Editor: FC = () => {
       try {
         const fileMap = treeToMap(fileTree);
         const success = editorController.compileSourceCode(fileMap);
-        !silent && success && Message.success('编译成功');
+        !silent && success && Message.success(intl('CompileSuccess'));
         return true;
       } catch (error) {
         Dialog.alert({
-          title: '编译失败',
+          title: intl('CompileFailed'),
           content: (
-            <pre>{(error as any).message || '编译失败，请检查语法'}</pre>
+            <pre>{(error as any).message || intl('CompileFailedCheckSyntax')}</pre>
           ),
         });
         console.error(error);
@@ -83,7 +84,7 @@ const Editor: FC = () => {
   );
   const { handler: handleSave } = useUnReactiveFn(() => {
     if (handleCompile(true)) {
-      // 全部保存, 标记清空
+      // Everything is saved, clear the modified markers
       updateState({ modifiedKeys: [] });
     }
   }, [handleCompile]);
@@ -147,7 +148,7 @@ const Editor: FC = () => {
     let first = true;
     document.onmousemove = function (e) {
       if (first) {
-        // 只拖动一下视为点击误触 防止偶现点击触发拖动问题
+        // A one-pixel drag counts as a click, which avoids clicks accidentally triggering a drag
         first = false;
         return;
       }
@@ -198,7 +199,7 @@ const Editor: FC = () => {
         className="ilp-multiple-editor-wrapper"
         style={{ left: fileTreeWidth, width: `calc(100% - ${fileTreeWidth})` }}
       >
-        <h3>{file ? file.name : '无文件'}</h3>
+        <h3>{file ? file.name : intl('NoFile')}</h3>
         {file ? (
           <MonacoEditor
             language={languageMap[file.ext || ''] as any}
@@ -210,7 +211,7 @@ const Editor: FC = () => {
             isFullscreen={fullscreen}
           />
         ) : (
-          '未选中任意文件'
+          intl('NoFileSelected')
         )}
       </div>
     </div>

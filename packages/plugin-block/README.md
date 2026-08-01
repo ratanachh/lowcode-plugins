@@ -1,6 +1,6 @@
-# 区块管理 - 区块面板
+# Block management - Block pane
 
-## 区块实体
+## Block entity
 
 ```
 
@@ -15,9 +15,9 @@ interface Block {
 
 ```
 
-## 注意
+## Note
 
-使用区块管理需要提前将对应的 API 注册到 engine config 里：
+Before using block management you must register the corresponding APIs in the engine config:
 
 ```
 
@@ -36,7 +36,7 @@ function setupConfig() {
 }
 ```
 
-# 使用方式
+# Usage
 
 ```
 import { plugins } from '@rchh/lowcode-engine';

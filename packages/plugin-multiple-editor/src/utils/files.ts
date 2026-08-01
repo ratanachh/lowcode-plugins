@@ -98,7 +98,7 @@ export function getFileByPath(root: Dir, filename: string, path: string[]) {
 }
 
 /**
- * 生成一个文件，其中 file 格式为：{name: 'path/to/file.js', content: 'file content'}
+ * Creates a file, where file has the shape { name: 'path/to/file.js', content: 'file content' }
  * @param file
  * @param dir
  */
@@ -112,7 +112,7 @@ export function generateFile(
     .filter(Boolean);
   const filename = fragments[fragments.length - 1];
   const path = fragments.slice(0, fragments.length - 1);
-  // 找到或生成文件要被添加到的文件夹
+  // Find or create the folder the file should be added to
   let nextDir = dir;
   for (const dir of path) {
     let found: Dir | undefined = nextDir.dirs.find((d) => d.name === dir);
@@ -122,13 +122,13 @@ export function generateFile(
     }
     nextDir = found;
   }
-  // 添加文件
+  // Add the file
   nextDir.files.push(new File(filename, file.content, file.name));
 }
 
 /**
- * 后续 sourceCodeMap 对象格式为：{files: {}, meta: {}};
- * 需要对以前的格式做兼容
+ * The sourceCodeMap object now has the shape { files: {}, meta: {} };
+ * the previous format still has to be supported.
  * @param obj
  * @returns
  */

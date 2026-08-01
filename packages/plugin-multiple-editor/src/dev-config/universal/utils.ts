@@ -5,7 +5,7 @@ import { TransformStage } from '@rchh/lowcode-types';
 
 export const loadIncrementalAssets = () => {
   material?.onChangeAssets(() => {
-    Message.success('[MCBreadcrumb] 物料加载成功');
+    Message.success('[MCBreadcrumb] material loaded successfully');
   });
 
   material.loadIncrementalAssets({
@@ -39,13 +39,13 @@ export const loadIncrementalAssets = () => {
           {
             name: 'prefix',
             propType: 'string',
-            description: '样式类名的品牌前缀',
+            description: 'Brand prefix of the style class names',
             defaultValue: 'next-',
           },
           {
             name: 'title',
             propType: 'string',
-            description: '标题',
+            description: 'Title',
             defaultValue: 'next-',
           },
           {
@@ -58,7 +58,7 @@ export const loadIncrementalAssets = () => {
               type: 'instanceOf',
               value: 'node',
             },
-            description: '面包屑子节点，需传入 Breadcrumb.Item',
+            description: 'Breadcrumb children; Breadcrumb.Item elements are expected',
           },
           {
             name: 'maxNode',
@@ -73,7 +73,7 @@ export const loadIncrementalAssets = () => {
               ],
             },
             description:
-              '面包屑最多显示个数，超出部分会被隐藏, 设置为 auto 会自动根据父元素的宽度适配。',
+              'Maximum number of breadcrumb items to show; extra items are hidden. Set to auto to adapt to the parent width.',
             defaultValue: 100,
           },
           {
@@ -82,7 +82,7 @@ export const loadIncrementalAssets = () => {
               type: 'instanceOf',
               value: 'node',
             },
-            description: '分隔符，可以是文本或 Icon',
+            description: 'Separator, either text or an Icon',
           },
           {
             name: 'component',
@@ -90,7 +90,7 @@ export const loadIncrementalAssets = () => {
               type: 'oneOfType',
               value: ['string', 'func'],
             },
-            description: '设置标签类型',
+            description: 'Tag type',
             defaultValue: 'nav',
           },
           {
@@ -114,24 +114,24 @@ export const loadIncrementalAssets = () => {
 
     componentList: [
       {
-        title: '常用',
+        title: 'Common',
         icon: '',
         children: [
           {
             componentName: 'MCBreadcrumb',
-            title: 'MC面包屑',
+            title: 'MC Breadcrumb',
             icon: '',
             package: 'mc-breadcrumb',
             library: 'MCBreadcrumb',
             snippets: [
               {
-                title: 'MC面包屑',
+                title: 'MC Breadcrumb',
                 screenshot:
                   'https://alifd.oss-cn-hangzhou.aliyuncs.com/fusion-cool/icons/icon-light/ic_light_breadcrumb.png',
                 schema: {
                   componentName: 'MCBreadcrumb',
                   props: {
-                    title: '物料中心',
+                    title: 'Material center',
                     prefix: 'next-',
                     maxNode: 100,
                   },
@@ -168,14 +168,14 @@ export const saveSchema = async (scenarioName = 'index') => {
   //   'packages',
   //   JSON.stringify(packages)
   // );
-  Message.success('成功保存到本地');
+  Message.success('Saved locally');
 };
 
 export const resetSchema = async (scenarioName = 'index') => {
   try {
     await new Promise<void>((resolve, reject) => {
       Dialog.confirm({
-        content: '确定要重置吗？您所有的修改都将消失！',
+        content: 'Are you sure you want to reset? All your changes will be lost.',
         onOk: () => {
           resolve();
         },
@@ -188,7 +188,7 @@ export const resetSchema = async (scenarioName = 'index') => {
     return;
   }
 
-  // 除了「综合场景」，其他场景没有默认 schema.json，这里构造空页面
+  // Apart from the combined scenario, no scenario ships a default schema.json, so build an empty page here
   if (scenarioName !== 'index') {
     window.localStorage.setItem(
       getLSName(scenarioName),
@@ -203,7 +203,7 @@ export const resetSchema = async (scenarioName = 'index') => {
       .getCurrentDocument()
       ?.importSchema({ componentName: 'Page', fileName: 'sample' });
     project.simulatorHost?.rerender();
-    Message.success('成功重置页面');
+    Message.success('Page reset');
     return;
   }
 
@@ -229,7 +229,7 @@ export const resetSchema = async (scenarioName = 'index') => {
 
   project.getCurrentDocument()?.importSchema(schema);
   project.simulatorHost?.rerender();
-  Message.success('成功重置页面');
+  Message.success('Page reset');
 };
 
 const getLSName = (scenarioName: string, ns = 'projectSchema') =>

@@ -18,13 +18,13 @@ function getMethodFromNode(node: any): Methods {
   const methods: Methods = {};
   const mergeIfReference = (obj: any) => {
     if (obj?.value && typeof obj.value) {
-      // JSFunction 类型的为this.xxx.apply()
+      // JSFunction values look like this.xxx.apply()
       const matches = obj.value.match(
         /((this\.)\w+(\.apply)?\(.*?\))/g
       ) as string[];
       if (matches?.length) {
         for (const match of matches) {
-          // 二次确认
+          // Double check
           if (/(this\.)\w+(\.apply)?\(.*?\)/.test(match)) {
             mergeMethod(methods, {
               [match.replace(/(this\.)|((\.apply)?\(.*$)/g, '')]: { count: 1 },
@@ -35,7 +35,7 @@ function getMethodFromNode(node: any): Methods {
     }
   };
 
-  // 合并一个节点数组，例如 slot 的元素列表
+  // Merge an array of nodes, e.g. the element list of a slot
   const mergeNodeList = (list: any[]) => {
     if (!isArray(list)) {
       return;
@@ -46,23 +46,23 @@ function getMethodFromNode(node: any): Methods {
   };
 
   const propsKeys = Object.keys(node?.props || {});
-  // 属性和事件
+  // Props and events
   for (const key of propsKeys) {
     const prop = node.props[key];
-    // 处理事件引用
+    // Handle event references
     if (key === '__events' && prop.eventDataList) {
-      // 已经在 mergeIfReference 处理了，以下暂时不需要
+      // Already handled in mergeIfReference, so the following is not needed for now
       // for (const ev of prop.eventDataList) {
       //   mergeMethod(methods, { [ev.relatedEventName]: { count: 1 } });
       // }
     } else {
-      // 普通 slot
+      // Plain slot
       if (prop.type === 'JSSlot') {
         mergeNodeList(prop.value || []);
       } else if (prop.type === 'JSFunction') {
         mergeIfReference(prop);
       } else if (isArray(prop)) {
-        // 数组类型，可能存在是个 slot 数组
+        // Array type, which may be an array of slots
         for (const item of prop) {
           if (isObject(item)) {
             for (const k of Object.keys(item)) {
@@ -74,25 +74,25 @@ function getMethodFromNode(node: any): Methods {
           }
         }
       } else {
-        // 普通 props
+        // Plain props
         mergeIfReference(prop);
       }
     }
   }
 
-  // 条件语句
+  // Conditional
   mergeIfReference(node?.condition);
 
-  // 循环
+  // Loop
   mergeIfReference(node.loop);
 
-  // 子元素
+  // Children
   mergeNodeList(node.children || []);
 
   return methods;
 }
 
-// 合并方法，引用次数相加
+// Merge methods, summing their reference counts
 function mergeMethod(methods: Methods, childMethods: Methods) {
   for (const method of Object.keys(childMethods)) {
     if (!methods[method]) {

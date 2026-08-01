@@ -8,6 +8,7 @@ import functionIcon from './img/function.png';
 import propsIcon from './img/props.png';
 import { focusByContent } from './utils';
 import { editorController } from '../../Controller';
+import { intl } from '../../locale';
 export interface OutlineProps {
   content?: string;
   className?: string;
@@ -65,7 +66,7 @@ const Outline: FC<OutlineProps> = ({
     level = 1,
   }) => {
     const [selectedKey, setSelectedKey] = useState();
-    const [expand, setExpand] = useState(true); // 根目录默认展开
+    const [expand, setExpand] = useState(true); // the root directory is expanded by default
     const levelStyle = useMemo(() => ({ paddingLeft: level * 8 }), [level]);
     const onRelatedEventClick = (event: any) => {
       setSelectedKey(event);
@@ -131,7 +132,7 @@ const Outline: FC<OutlineProps> = ({
     <div className={className}>
       <div className={cls('ilp-outline-bar')} style={ilpOutLineStyle}>
         <h4 className="ilp-outline-bar-title">
-          <span>大纲树</span>
+          <span>{intl('OutlineTree')}</span>
         </h4>
         <div className="ilp-outline-nodeList">
           {dir?.map((item) => {

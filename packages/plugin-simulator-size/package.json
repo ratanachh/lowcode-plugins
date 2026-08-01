@@ -1,7 +1,7 @@
 {
   "name": "@rchh/lowcode-plugin-simulator-select",
   "version": "1.0.4",
-  "description": "画布切换",
+  "description": "Canvas size switcher",
   "main": "lib/index.js",
   "scripts": {
     "start": "build-scripts start --config build.js",
@@ -14,6 +14,7 @@
     "simulator"
   ],
   "dependencies": {
+    "@rchh/lowcode-editor-core": "npm:@alilc/lowcode-editor-core@^1.0.6",
     "@alifd/next": "^1.25.0"
   },
   "devDependencies": {

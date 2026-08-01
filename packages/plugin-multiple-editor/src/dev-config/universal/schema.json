@@ -96,7 +96,7 @@
               "componentName": "NextPageHeader",
               "id": "node_ockzs2vw433",
               "props": {},
-              "title": "页面头部",
+              "title": "Page header",
               "hidden": false,
               "isLocked": false,
               "condition": true,
@@ -109,7 +109,7 @@
                     "rowGap": 20,
                     "colGap": 20
                   },
-                  "title": "行列容器",
+                  "title": "Grid container",
                   "hidden": false,
                   "isLocked": false,
                   "condition": true,
@@ -119,7 +119,7 @@
                       "componentName": "NextRow",
                       "id": "node_ockzs2vw435",
                       "props": {},
-                      "title": "行",
+                      "title": "Row",
                       "hidden": false,
                       "isLocked": false,
                       "condition": true,
@@ -131,7 +131,7 @@
                           "props": {
                             "colSpan": 1
                           },
-                          "title": "列",
+                          "title": "Column",
                           "hidden": false,
                           "isLocked": false,
                           "condition": true,
@@ -148,7 +148,7 @@
                                 "align": "left"
                               },
                               "docId": "dockzvfoetv",
-                              "title": "段落",
+                              "title": "Paragraph",
                               "hidden": false,
                               "isLocked": false,
                               "condition": true,
@@ -162,7 +162,7 @@
                                     "children": {
                                       "type": "JSExpression",
                                       "value": "this.state.info?.info",
-                                      "mock": "标题标题"
+                                      "mock": "Sample title"
                                     },
                                     "mark": false,
                                     "code": false,
@@ -198,7 +198,7 @@
           }
         }
       },
-      "title": "页面",
+      "title": "Page",
       "hidden": false,
       "isLocked": false,
       "condition": true,
@@ -213,7 +213,7 @@
             },
             "noPadding": false,
             "noBorder": false,
-            "title": "区域标题",
+            "title": "Section title",
             "rowGap": 20,
             "colGap": 20,
             "background": "surface",
@@ -224,7 +224,7 @@
             "mode": "transparent",
             "childTotalColumns": 12
           },
-          "title": "区域",
+          "title": "Section",
           "hidden": false,
           "isLocked": false,
           "condition": true,
@@ -238,7 +238,7 @@
                 "rowSpan": 1,
                 "mode": "procard",
                 "isAutoContainer": true,
-                "title": "区块标题"
+                "title": "Block title"
               },
               "hidden": false,
               "title": "",
@@ -253,7 +253,7 @@
                     "rowGap": 20,
                     "colGap": 20
                   },
-                  "title": "行列容器",
+                  "title": "Grid container",
                   "hidden": false,
                   "isLocked": false,
                   "condition": true,
@@ -263,7 +263,7 @@
                       "componentName": "NextRow",
                       "id": "node_ockzs2vw43a",
                       "props": {},
-                      "title": "行",
+                      "title": "Row",
                       "hidden": false,
                       "isLocked": false,
                       "condition": true,
@@ -275,7 +275,7 @@
                           "props": {
                             "colSpan": 1
                           },
-                          "title": "列",
+                          "title": "Column",
                           "hidden": false,
                           "isLocked": false,
                           "condition": true,

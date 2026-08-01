@@ -3,7 +3,7 @@ title: epoch demo
 order: 3
 ---
 
-用法
+Usage
 
 ````jsx
 import React, { Component } from 'react';

@@ -1,36 +1,36 @@
 # lowcode-plugin-@rchh/lowcode-plugin-schema [![][npm-image]][npm-url]
 
 show lowcode schema
-查看低代码引擎 schema
+View the Lowcode Engine schema
 
 ---
 
-## 使用
+## Usage
 
-### 注册插件
-#### 展示页面级 schema
+### Register the plugin
+#### Show the page-level schema
 ```jsx
 import { plugins } from '@rchh/lowcode-engine';
 import LowcodePluginAliLowcodePluginSchema from '@rchh/lowcode-plugin-schema';
 
-// 注册到引擎
+// Register with the engine
 plugins.register(LowcodePluginAliLowcodePluginSchema);
 ```
-#### 展示项目级 schema
+#### Show the project-level schema
 ```jsx
 import { plugins } from '@rchh/lowcode-engine';
 import LowcodePluginAliLowcodePluginSchema from '@rchh/lowcode-plugin-schema';
 
-// 注册到引擎
+// Register with the engine
 plugins.register(LowcodePluginAliLowcodePluginSchema, { isProjectSchema: true });
 ```
 
-### 插件属性 & 方法
+### Plugin properties & methods
 
 #### isProjectSchema
-- description: '是否是项目级 schema'
+- description: 'Whether to show the project-level schema'
 - type: 'boolean'
 - default: false
 
-### 依赖插件
-暂无
+### Plugin dependencies
+None

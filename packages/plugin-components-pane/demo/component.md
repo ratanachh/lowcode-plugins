@@ -3,7 +3,7 @@ title: Component
 order: 2
 ---
 
-用法
+Usage
 
 ````jsx
 import React, { Component } from 'react';

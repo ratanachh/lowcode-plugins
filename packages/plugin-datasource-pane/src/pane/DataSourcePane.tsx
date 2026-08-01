@@ -1,5 +1,5 @@
 /**
- * 面板，先通过 Dialog 呈现
+ * The pane, rendered through a Dialog for now.
  */
 import React, { PureComponent, createRef } from 'react';
 import cn from 'classnames';
@@ -24,27 +24,28 @@ import type {
   DataSourcePaneImportPlugin,
   DataSourceType,
 } from '../types';
+import { intl } from '../locale';
 
 export interface DataSourcePaneProps {
   className?: string;
   style?: React.CSSProperties;
-  /** 自定义数据源 */
+  /** Custom data source form components */
   formComponents?: any[];
-  /** 数据源类型定义 */
+  /** Data source type definitions */
   dataSourceTypes?: DataSourceType[];
-  /** 导入插件 */
+  /** Import plugins */
   importPlugins?: DataSourcePaneImportPlugin[];
-  /** 导出插件 */
+  /** Export plugins */
   exportPlugins?: DataSourcePaneImportPlugin[];
-  /** 默认的协议 */
+  /** Default schema */
   initialSchema?: DataSource;
-  /** 协议变化事件处理 */
+  /** Schema change handler */
   onSchemaChange?: (schema: DataSource) => void;
-  /** 导出事件处理 */
+  /** Export handler */
   onExport?: (dataSourceConfigList: DataSourceConfig[]) => void;
   // TODO
   helpLink?: string;
-  /** 渲染数据源信息标签 */
+  /** Renders the info tags of a data source */
   renderDataSourceInfoTags?: (
     dataSource: DataSourceConfig
   ) => DataSourceInfoTag[];
@@ -83,7 +84,7 @@ export class DataSourcePane extends PureComponent<
   componentDidMount() {
     this.serviceS = this.context?.stateService?.subscribe?.((state: any) => {
       this.setState({ current: state });
-      // 监听导入成功事件
+      // Listen for a successful import
       if (state.changed && (state.value === 'idle' || state.event?.type === 'FINISH_IMPORT')) {
         // TODO add hook
         this.props.onSchemaChange?.({
@@ -161,7 +162,7 @@ export class DataSourcePane extends PureComponent<
     }
     if (operationType === 'remove') {
       Dialog.confirm({
-        content: '确定要删除吗？',
+        content: intl('ConfirmRemove'),
         onOk: () => {
           this.send({ type: 'REMOVE', dataSourceId });
         },
@@ -220,7 +221,7 @@ export class DataSourcePane extends PureComponent<
           });
         };
         if (!_isArray(data) || data.length === 0) {
-          Message.error('没有找到可导入的数据源');
+          Message.error(intl('NoImportableDataSourceFound'));
           return;
         }
         const repeatedDataSourceList = data.filter(
@@ -230,9 +231,9 @@ export class DataSourcePane extends PureComponent<
         );
         if (repeatedDataSourceList.length > 0) {
           Dialog.confirm({
-            content: `数据源（${repeatedDataSourceList
-              .map((item) => item.id)
-              .join('，')}）已存在，如果导入会替换原数据源，是否继续？`,
+            content: intl('ImportOverwriteConfirm', {
+              ids: repeatedDataSourceList.map((item) => item.id).join(', '),
+            }),
             onOk: () => {
               importDataSourceList();
             },
@@ -311,11 +312,11 @@ export class DataSourcePane extends PureComponent<
           <div className={generateClassName('detail-actions')}>
             {current.context.detail.ok !== false && (
               <Button text type="primary" onClick={this.handleOperationFinish}>
-                {current.context.detail.okText || '确认'}
+                {current.context.detail.okText || intl('Confirm')}
               </Button>
             )}
             <Button text onClick={this.handleOperationCancel}>
-              {current.context.detail.cancelText || '取消'}
+              {current.context.detail.cancelText || intl('Cancel')}
             </Button>
           </div>
         </div>
@@ -337,7 +338,7 @@ export class DataSourcePane extends PureComponent<
 
     if (!dataSourceTypes || dataSourceTypes.length === 0) {
       return (
-        <div className={generateClassName('error')}>没有找到数据源类型</div>
+        <div className={generateClassName('error')}>{intl('NoDataSourceTypeFound')}</div>
       );
     }
 
@@ -357,8 +358,8 @@ export class DataSourcePane extends PureComponent<
         style={style}
       >
         <div className={generateClassName('title')}>
-          数据源
-          {helpLink && <Button component="a" href={helpLink}>使用帮助</Button>}
+          {intl('DataSource')}
+          {helpLink && <Button component="a" href={helpLink}>{intl('UsageHelp')}</Button>}
         </div>
         <DataSourceFilter
           key={current.context.dataSourceListFilter.renderKey}

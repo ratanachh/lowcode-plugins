@@ -8,7 +8,7 @@ import { Button } from '@alifd/next';
 import ComponentsPane from '@rchh/lowcode-plugin-components-pane';
 import Inject, { injectAssets } from '@rchh/lowcode-plugin-inject';
 
-// 注册到引擎
+// Register with the engine
 import TitleSetter from '@alilc/lowcode-setter-title';
 import BehaviorSetter from '../setters/behavior-setter';
 import CustomSetter from '../setters/custom-setter';
@@ -36,20 +36,20 @@ export default async function registerPlugins() {
     return {
       name: 'editor-init',
       async init() {
-        // 修改面包屑组件的分隔符属性setter
+        // Change the setter of the breadcrumb separator property
         // const assets = await (
         //   await fetch(
         //     `https://alifd.alicdn.com/npm/@rchh/lowcode-materials/build/lowcode/assets-prod.json`
         //   )
         // ).json();
-        // 设置物料描述
+        // Set the material descriptions
         const { material, project } = ctx;
 
         await material.setAssets(await injectAssets(assets));
 
         const schema = await getPageSchema();
 
-        // 加载 schema
+        // Load the schema
         project.openDocument(schema);
       },
     };
@@ -62,7 +62,7 @@ export default async function registerPlugins() {
       name: 'builtin-plugin-registry',
       async init() {
         const { skeleton } = ctx;
-        // 注册 logo 面板
+        // Register the logo pane
         skeleton.add({
           area: 'topArea',
           type: 'Widget',
@@ -77,7 +77,7 @@ export default async function registerPlugins() {
           },
         });
 
-        // 注册组件面板
+        // Register the components pane
         const componentsPane = skeleton.add({
           area: 'leftArea',
           type: 'PanelDock',
@@ -87,7 +87,7 @@ export default async function registerPlugins() {
           props: {
             align: 'top',
             icon: 'zujianku',
-            description: '组件库',
+            description: 'Component library',
           },
         });
         componentsPane?.disable?.();
@@ -100,17 +100,17 @@ export default async function registerPlugins() {
   builtinPluginRegistry.pluginName = 'builtinPluginRegistry';
   await plugins.register(builtinPluginRegistry);
 
-  // 设置内置 setter 和事件绑定、插件绑定面板
+  // Configure the built-in setters and the event / variable binding panes
   const setterRegistry = (ctx: any) => {
     const { setterMap, pluginMap } = AliLowCodeEngineExt;
     return {
       name: 'ext-setters-registry',
       async init() {
         const { setters, skeleton } = ctx;
-        // 注册setterMap
+        // Register the setter map
         setters.registerSetter(setterMap as any);
-        // 注册插件
-        // 注册事件绑定面板
+        // Register the plugins
+        // Register the event binding pane
         skeleton.add({
           area: 'centerArea',
           type: 'Widget',
@@ -119,7 +119,7 @@ export default async function registerPlugins() {
           props: {},
         });
 
-        // 注册变量绑定面板
+        // Register the variable binding pane
         skeleton.add({
           area: 'centerArea',
           type: 'Widget',
@@ -148,7 +148,7 @@ export default async function registerPlugins() {
             width: 80,
           },
           content: (
-            <Button onClick={loadIncrementalAssets}>异步加载资源</Button>
+            <Button onClick={loadIncrementalAssets}>Load assets asynchronously</Button>
           ),
         });
       },
@@ -157,7 +157,7 @@ export default async function registerPlugins() {
   loadAssetsSample.pluginName = 'loadAssetsSample';
   await plugins.register(loadAssetsSample);
 
-  // 注册保存面板
+  // Register the save pane
   const saveSample = (ctx: any) => {
     return {
       name: 'saveSample',
@@ -171,7 +171,7 @@ export default async function registerPlugins() {
           props: {
             align: 'right',
           },
-          content: <Button onClick={() => saveSchema()}>保存到本地</Button>,
+          content: <Button onClick={() => saveSchema()}>Save locally</Button>,
         });
         skeleton.add({
           name: 'resetSchema',
@@ -180,7 +180,7 @@ export default async function registerPlugins() {
           props: {
             align: 'right',
           },
-          content: <Button onClick={() => resetSchema()}>重置页面</Button>,
+          content: <Button onClick={() => resetSchema()}>Reset page</Button>,
         });
         hotkey.bind('command+s', (e) => {
           e.preventDefault();
@@ -206,7 +206,7 @@ export default async function registerPlugins() {
           },
           content: (
             <Button type="primary" onClick={() => preview()}>
-              预览
+              Preview
             </Button>
           ),
         });

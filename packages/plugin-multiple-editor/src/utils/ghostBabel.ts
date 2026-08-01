@@ -1,5 +1,5 @@
 /**
- * 使用 @babel/standalone 的能力实现 parse 和 traverse
+ * Implements parse and traverse on top of @babel/standalone
  */
 
 import {

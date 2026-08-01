@@ -8,7 +8,7 @@ import { IEditorInstance } from '@rchh/lowcode-plugin-base-monaco-editor/lib/hel
 
 interface PluginCodeDiffProps {
   pluginContext: IPublicModelPluginContext;
-  // 是否显示项目级 schema
+  // Whether to show the project-level schema
   showProjectSchema: boolean;
 }
 
@@ -63,10 +63,10 @@ export default function PluginSchema({ pluginContext, showProjectSchema = false 
           return;
         }
         if (showProjectSchema) {
-          // 当前操作项目级 schema
+          // Operating on the project-level schema
           project.importSchema(json);
         } else {
-          // 当前操作页面级 schema
+          // Operating on the page-level schema
           project.importSchema({
             ...project.exportSchema(IPublicEnumTransformStage.Save),
             componentsTree: [json],

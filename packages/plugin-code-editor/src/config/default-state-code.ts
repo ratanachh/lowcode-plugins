@@ -1,5 +1,5 @@
 export const defaultStateCode = `
-  // 你可以在这里添加自己的state，如示例中的test
+  // Add your own state here, such as `test` in the example
   state = {
     hello: "Hello AliLowCode",
   }

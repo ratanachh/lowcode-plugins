@@ -1,8 +1,8 @@
-## 低代码引擎 - 数据源面板插件
+## Lowcode Engine - Data source pane plugin
 
-配置页面的数据源。
+Configures the data sources of a page.
 
-一个 pluginProps 的例子
+An example of pluginProps
 
 ```
 {
@@ -39,7 +39,7 @@
 }
 ```
 
-使用预置的数据源类型
+Using the preset data source types
 
 ```
 import {
@@ -49,13 +49,13 @@ import {
 } from '@rchh/lowcode-plugin-datasource-pane';
 ```
 
-## 如何定制
+## How to customize
 
-## 定制数据源类型
+## Customizing data source types
 
-### 类型定义
+### Type definition
 
-内置 fetch，mtop，jsonp 类型，支持传入自定义类型。
+`fetch`, `mtop` and `jsonp` are built in, and custom types can be passed in.
 
 ```
 type DataSourceType = {
@@ -64,17 +64,17 @@ type DataSourceType = {
 };
 ```
 
-数据源类型需要在集团规范约束下扩展。目前只允许在 options 下添加扩展字段。
+Data source types must be extended within the constraints of the group specification. For now, extra fields may only be added under `options`.
 
-比如 mtop 类型，需要添加 options.v （版本）字段。
+For example, the `mtop` type needs an `options.v` (version) field.
 
-### formily 组件
+### formily components
 
-### 下钻
+### Drill-down
 
-## 定制数据源信息展示标签
+## Customizing data source info tags
 
-通过 renderDataSourceInfoTags 方法控制数据源的信息展示
+Use the `renderDataSourceInfoTags` method to control what information a data source displays.
 
 ```
 (dataSourceConfig) => {
@@ -87,11 +87,11 @@ type DataSourceType = {
 }
 ```
 
-## 定制导入插件
+## Customizing import plugins
 
-### 导入组件示例
+### Import component example
 
-导入组件引入方式参考 pluginProps 
+See pluginProps for how import components are wired in.
 ```
 import { DataSourceImportPluginTest } from './DataSourceImportPluginTest';
 
@@ -99,8 +99,8 @@ import { DataSourceImportPluginTest } from './DataSourceImportPluginTest';
   ...
     importPlugins: [
         {
-            name: '这里可以导入',
-            title: '这里可以导入',
+            name: 'Import here',
+            title: 'Import here',
             component: DataSourceImportPluginTest,
             componentProps: {
                 onImport: (res) => {
@@ -122,8 +122,8 @@ import { DataSourceImportPluginTest } from './DataSourceImportPluginTest';
 // DataSourceImportPluginTest.jsx
 
 /**
- * 源码导入插件
- * @todo editor 关联 types，并提供详细的出错信息
+ * Source code import plugin
+ * @todo associate types with the editor and provide detailed error messages
  */
 import React, { PureComponent } from 'react';
 import { Button } from '@alifd/next';
@@ -157,19 +157,19 @@ export class DataSourceImportPluginCode extends PureComponent<
     DataSourceImportPluginCodeState
 > {
     handleComplete = () => {
-        console.log('确认')
+        console.log('confirm')
     };
     onCancel = () => {
-        console.log('取消')
+        console.log('cancel')
     };
     render() {
         return (
             <div className="lowcode-plugin-datasource-import-plugin-code">
-                此处代码可以自定义
+                This code can be customized
                 <p className="btns">
-                    <Button onClick={this.onCancel}>取消</Button>
+                    <Button onClick={this.onCancel}>Cancel</Button>
                     <Button type="primary" onClick={this.handleComplete}>
-                        确认
+                        Confirm
                     </Button>
                 </p>
             </div>
@@ -179,22 +179,22 @@ export class DataSourceImportPluginCode extends PureComponent<
 
 ```
 
-具体的 component 可参考 DataSourceImportPluginCode
- [查看](https://github.com/alibaba/lowcode-plugins/blob/main/packages/plugin-datasource-pane/src/components/DataSourceImportPluginCode/DataSourceImportPluginCode.tsx)
+See DataSourceImportPluginCode for a concrete component
+ [view](https://github.com/alibaba/lowcode-plugins/blob/main/packages/plugin-datasource-pane/src/components/DataSourceImportPluginCode/DataSourceImportPluginCode.tsx)
 
- demo 截图
+ demo screenshot
  ![Alt](https://user-images.githubusercontent.com/14235113/186659341-dff511e8-f032-423c-8be7-e0cc281f3964.png)
 
 
 
 
-## 定制导出插件
+## Customizing export plugins
 
 WIP
 
-# 事件钩子
+# Event hooks
 
-# 依赖
+# Dependencies
 
 * formily v2
 * xstate
@@ -202,25 +202,25 @@ WIP
 * react-dnd
 
 
-# 和之前版本的区别
+# Differences from the previous version
 
-* 支持导出并自定义导出插件
-* 支持排序
-* 支持信息标签
-* 体验更好的对象参数编辑
-* 支持字段配置表达式
+* Supports exporting and custom export plugins
+* Supports sorting
+* Supports info tags
+* Better experience when editing object parameters
+* Supports expressions in field configuration
 
-# 贡献代码
+# Contributing
 
-欢迎提 MR
+Merge requests are welcome
 
-# 未来计划
+# Roadmap
 
-* 详情页下钻
-* 支持多语言处理
-* 单元测试
+* Detail page drill-down
+* Internationalization support
+* Unit tests
 
 
-# 参考
+# References
 
-* [搭建协议规范](https://lowcode-engine.cn/lowcode)
+* [Page building protocol specification](https://lowcode-engine.cn/lowcode)

@@ -4,6 +4,7 @@ import { RuntimeDataSourceConfig as DataSourceConfig } from '@rchh/lowcode-datas
 import _isArray from 'lodash/isArray';
 import { generateClassName } from '../../utils/misc';
 import { DataSourcePaneImportPlugin, DataSourceType, DataSourcePanelMode } from '../../types';
+import { intl } from '../../locale';
 
 const { Item: MenuButtonItem } = MenuButton;
 
@@ -41,7 +42,7 @@ export class DataSourceOperations extends PureComponent<DataSourceOperationsProp
   };
 
   handleImportDataSourceMenuBtnClick = (importPluginName: string) => {
-    // TODO: 这个是什么
+    // TODO: figure out what this is
     // @ts-ignore
     this.props.onImport?.({
       name: importPluginName,
@@ -54,9 +55,9 @@ export class DataSourceOperations extends PureComponent<DataSourceOperationsProp
 
     if (mode === DataSourcePanelMode.SORTING) {
       return [
-        <Button onClick={this.props.onFinishSort}>完成</Button>,
+        <Button onClick={this.props.onFinishSort}>{intl('Done')}</Button>,
         <Button text onClick={this.props.onCancelSort}>
-          取消
+          {intl('Cancel')}
         </Button>,
       ];
     }
@@ -67,10 +68,10 @@ export class DataSourceOperations extends PureComponent<DataSourceOperationsProp
           key="do-export"
           onClick={this.props.onFinishExport}
         >
-          导出 {selectedList.length} 项
+          {intl('ExportSelected', { count: selectedList.length })}
         </Button>,
         <Button text key="finish-export" onClick={this.props.onCancelExport}>
-          取消
+          {intl('Cancel')}
         </Button>,
       ];
     }
@@ -79,7 +80,7 @@ export class DataSourceOperations extends PureComponent<DataSourceOperationsProp
       _isArray(dataSourceTypes) && dataSourceTypes.length > 0 ? (
         <MenuButton
           key="create"
-          label="新建"
+          label={intl('Create')}
           onItemClick={this.handleDataSourceFormMenuBtnClick}
         >
           {dataSourceTypes.map((type) => (
@@ -94,19 +95,19 @@ export class DataSourceOperations extends PureComponent<DataSourceOperationsProp
             dataSourceTypes[0].type,
           )}
         >
-          新建
+          {intl('Create')}
         </Button>
       ) : null,
       !empty ? (
         <Button text key="sort" onClick={this.props.onStartSort}>
-          排序
+          {intl('Sort')}
         </Button>
       ) : null,
       _isArray(importPlugins) && importPlugins.length > 1 ? (
         <MenuButton
           text
           key="import"
-          label="导入"
+          label={intl('Import')}
           onItemClick={this.handleImportDataSourceMenuBtnClick}
         >
           {importPlugins.map((plugin) => (
@@ -122,12 +123,12 @@ export class DataSourceOperations extends PureComponent<DataSourceOperationsProp
           )}
           text
         >
-          导入
+          {intl('Import')}
         </Button>
       ) : null,
       !empty ? (
         <Button text key="export" onClick={this.props.onStartExport}>
-          导出
+          {intl('Export')}
         </Button>
       ) : null,
     ];

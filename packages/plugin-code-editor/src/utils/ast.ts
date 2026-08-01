@@ -4,7 +4,7 @@ import { getMethods } from './get-methods';
 
 
 export function transformAst(code: string) {
-  // TODO: 配置未来需要外化
+  // TODO: this configuration should be externalized
   return parse(code, { sourceType: 'module',
 plugins: [
     'asyncGenerators',

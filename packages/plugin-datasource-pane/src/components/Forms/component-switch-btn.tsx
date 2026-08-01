@@ -38,7 +38,7 @@ class ComponentSwitchBtnCompComp extends PureComponent<
   componentDidMount() {
     this.originalComponent = this.props.originalComponent;
 
-    // 表单回调的时候，如果初始值是 expression，那需要切换组件
+    // In the form callback, switch the component when the initial value is an expression
     if (isJSExpression(this.props.field.value)) {
       this.props.setComponent('LowcodeExpression')
       this.setState({ currentComponent: 'LowcodeExpression' });
@@ -59,32 +59,32 @@ class ComponentSwitchBtnCompComp extends PureComponent<
 
     switch(nextComponent) {
       case 'Switch':
-        // expression 转 boolean
+        // expression -> boolean
         if (isJSExpression(nextValue)) {
           nextValue = (nextValue && nextValue.value === 'true') || false;
         }
         break;
       case 'NumberPicker':
-        // expression 转 number
+        // expression -> number
         if (isJSExpression(nextValue)) {
           const val = +(nextValue && nextValue.value)
           nextValue = isNaN(val) ? 0 : val
         }
         break;
       case 'ArrayItems':
-         // expression 转 array
+         // expression -> array
         if (isJSExpression(nextValue)) {
           nextValue = []
         }
         break;
       case 'LowcodeExpression':
-        // 普通组件转 array
+        // plain component -> expression
         nextValue = {
           type: 'JSExpression',
           value: nextValue + '',
         }
         break;
-      default: // 默认 expression 转 string （Input、Select 组件走这）
+      default: // by default expression -> string (used by the Input and Select components)
         if (isJSExpression(nextValue)) {
           nextValue = (nextValue && nextValue.value) || ''
         }

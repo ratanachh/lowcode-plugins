@@ -97,7 +97,7 @@ const SingleMonacoEditor = (props: ISingleMonacoEditorProps) => {
         right: 0,
         zIndex: 9998,
       });
-      // 更新小地图配置
+      // Update the minimap options
       editorInstance?.updateOptions({
         ...editorInstance?.getOptions(),
         minimap: {

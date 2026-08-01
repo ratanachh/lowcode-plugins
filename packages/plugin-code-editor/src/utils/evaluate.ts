@@ -27,6 +27,6 @@ export function evaluate(expr: ExprType) {
   const evalExprStr = getEvalExpressionStr(expr);
   const code = `with($scope || {}) { return ${evalExprStr} }`;
   const fn = new Function('$scope', code);
-  // 暂时不传递 $scope
+  // $scope is not passed for now
   return fn();
 }

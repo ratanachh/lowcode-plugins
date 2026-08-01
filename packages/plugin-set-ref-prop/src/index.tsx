@@ -1,6 +1,7 @@
 import { TransformedComponentMetadata, FieldConfig } from '@rchh/lowcode-types';
 import { v4 as uuidv4 } from 'uuid';
 import { material } from '@rchh/lowcode-engine';
+import { intl } from './locale';
 
 function addonCombine(metadata: TransformedComponentMetadata) {
   const { componentName, configure = {} } = metadata;
@@ -16,7 +17,7 @@ function addonCombine(metadata: TransformedComponentMetadata) {
   const refItem: FieldConfig = {
     title: {
       label: 'refId',
-      tip: '用于获取组件实例，调用物料内部方法',
+      tip: intl('RefIdTip'),
       icon: '',
     },
     name: 'ref',

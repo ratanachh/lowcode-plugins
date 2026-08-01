@@ -1,14 +1,15 @@
 import { EditorPluginInterface, Service } from '@/Service';
 import type editor from 'monaco-editor';
 import { findEditorMatch } from './util';
+import { intl } from '../../locale';
 import { getAllMethodFromSchema } from './search';
 
 type Methods = Record<string, { count: number | string }>;
 
 export class SearchPlugin implements EditorPluginInterface {
   /**
-   * 是否已经获取过搜索结果
-   * 出于性能考虑，只初始化一次
+   * Whether the search results have already been fetched.
+   * Initialized only once for performance reasons.
    */
   private gotSearch?: boolean;
 
@@ -37,7 +38,7 @@ export class SearchPlugin implements EditorPluginInterface {
     this.service = service;
     service.onActive(() => {
       // this.gotSearch = false;
-      // 搜索比较耗性能，每次只在打开面板的时候搜一次
+      // Searching is expensive, so it only runs once when the pane opens
       this.methods = this.options?.onGotMethods?.() || getAllMethodFromSchema();
       this.service.controller.codeEditor?.focus();
     });
@@ -47,7 +48,7 @@ export class SearchPlugin implements EditorPluginInterface {
     service.onSelectFileChange(
       ({ filepath, content }: { filepath: string; content: string }) => {
         if (!filepath) return;
-        // 只需要初始化一次
+        // Only needs to be initialized once
         if (
           filepath.replace(/^\//, '') === 'index.js' &&
           content &&
@@ -64,7 +65,7 @@ export class SearchPlugin implements EditorPluginInterface {
 
   private initCodelens() {
     const { monaco, codeEditor } = this.service.controller;
-    // 只需要一个command，根据函数名执行回调即可
+    // A single command is enough; the callback runs based on the function name
     if (!this.command) {
       this.command = codeEditor?.addCommand(
         0,
@@ -117,7 +118,7 @@ export class SearchPlugin implements EditorPluginInterface {
             },
             command: {
               id: this.command || 'no-command',
-              title: `共有${methods[method].count}处引用`,
+              title: intl('ReferenceCount', { count: methods[method].count }),
               arguments: [method],
             },
           });

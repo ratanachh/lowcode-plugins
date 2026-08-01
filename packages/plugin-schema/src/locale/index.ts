@@ -1,4 +1,10 @@
+import { createIntl } from '@rchh/lowcode-editor-core';
 import enUS from './en-US.json';
 import zhCN from './zh-CN.json';
 
-export { enUS, zhCN };
+const { intl, intlNode, getLocale, setLocale } = createIntl({
+  'en-US': enUS,
+  'zh-CN': zhCN,
+});
+
+export { enUS, zhCN, intl, intlNode, getLocale, setLocale };

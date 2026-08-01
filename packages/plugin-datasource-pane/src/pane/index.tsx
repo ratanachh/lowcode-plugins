@@ -27,6 +27,7 @@ import { createStateService } from '../utils/stateMachine';
 import { DataSourcePaneContext } from '../utils/panel-context';
 import { mergeTwoObjectListByKey } from '../utils/misc';
 import { common } from '@rchh/lowcode-engine';
+import { intl } from '../locale';
 
 import './index.scss';
 
@@ -46,14 +47,14 @@ export interface DataSourcePanePluginProps {
   dataSourceTypes: DataSourceType[];
   exportPlugins?: DataSourcePaneImportPlugin[];
   logger: Logger;
-  // 测试用
+  // For testing
   defaultSchema?: DataSource | (() => DataSource);
   onSchemaChange?: (schema: DataSource) => void;
   onError?: (error: Error) => void;
 }
 
 export interface DataSourcePanePluginState {
-  /** 面板是否打开 */
+  /** Whether the pane is open */
   active: boolean;
   panelKey: number;
 }
@@ -63,7 +64,7 @@ export { DataSourcePaneImportPlugin, DataSourceType, DataSourceConfig };
 const BUILTIN_IMPORT_PLUGINS: DataSourcePaneImportPlugin[] = [
   {
     name: 'default',
-    title: '源码',
+    title: intl('SourceCode'),
     component: DataSourceImportPluginCode,
   },
 ];
@@ -92,7 +93,7 @@ export default class DataSourcePanePlugin extends PureComponent<
 
   constructor(props: DataSourcePanePluginProps) {
     super(props);
-    // 第一次 active 事件不会触发监听器
+    // The first active event does not reach the listener
     this.state.active = true;
 
     const { event } = this.props;
@@ -160,9 +161,9 @@ export default class DataSourcePanePlugin extends PureComponent<
       schema = _get(projectSchema, 'componentsTree[0].dataSource');
     }
     if (!isSchemaValid(schema)) {
-      logger.warn('发现不合法的 schema', schema);
+      logger.warn('Found an invalid schema', schema);
       schema = correctSchema(schema);
-      logger.log('进行修正', schema);
+      logger.log('Corrected the schema', schema);
     }
 
     return (
@@ -208,9 +209,9 @@ interface ErrorFallbackProps {
 }
 function ErrorFallback(props: ErrorFallbackProps) {
   return (
-    <Message type="error" shape="addon" title="渲染异常">
+    <Message type="error" shape="addon" title={intl('RenderError')}>
       {props.error.message}
-      <Button onClick={props.resetErrorBoundary}>刷新面板</Button>
+      <Button onClick={props.resetErrorBoundary}>{intl('RefreshPane')}</Button>
     </Message>
   );
 }

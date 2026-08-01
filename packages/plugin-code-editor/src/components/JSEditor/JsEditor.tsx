@@ -111,7 +111,7 @@ export class JsEditor extends PureComponent<JsEditorProps, JsEditorState> {
       typeRoots: ["node_modules/@types"],  
     });
 
-    // 将 babel 报错提示在这里
+    // Surface babel errors here
     this.disposeProvider?.dispose?.();
     this.disposeProvider = monaco.languages.registerHoverProvider('javascript', {
       provideHover: (model: any, position: any) => {
@@ -179,7 +179,7 @@ export class JsEditor extends PureComponent<JsEditorProps, JsEditorState> {
       return;
     }
 
-    // 找到最后一个 }，在他前面插入新的 function 字符串
+    // Find the last `}` and insert the new function string before it
     const matches = monacoEditor.getModel()?.findMatches('}');
     let range = {}
     if(matches && matches.length > 0) {
@@ -219,7 +219,7 @@ export class JsEditor extends PureComponent<JsEditorProps, JsEditorState> {
             key={TAB_KEY.JS}
             onClick={() => onTabChange(TAB_KEY.JS)}
           />
-          {/** 当以后需要扩展多文件时，在这里控制 */}
+          {/** Multi-file support would be controlled here */}
         </Tab>
         {currentTab === TAB_KEY.JS && (
           <div className="plugin-code-editor-js plugin-code-editor-inner">

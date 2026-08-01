@@ -1,10 +1,11 @@
 import { IPublicModelPluginContext } from '@rchh/lowcode-types';
 import { IconQuestion } from './icon';
+import { intl } from './locale';
 
 const PluginManual = (ctx: IPublicModelPluginContext) => {
   return {
     init() {
-      // 往引擎增加面板
+      // Add a pane to the engine
       ctx.skeleton.add({
         area: 'leftArea',
         name: 'manualPane',
@@ -12,7 +13,7 @@ const PluginManual = (ctx: IPublicModelPluginContext) => {
         props: {
           align: 'bottom',
           icon: IconQuestion,
-          description: '如何使用',
+          description: intl('HowToUse'),
           onClick() {
             window.open('https://lowcode-engine.cn/site/docs/demoUsage/intro', '_blank').focus();
           },

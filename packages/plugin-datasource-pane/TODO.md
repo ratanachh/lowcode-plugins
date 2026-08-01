@@ -1,22 +1,22 @@
 TODO
 ---
 
-* 排序功能
-* 导出功能
-* 多语言
-* 定制样式
-* 不使用 bind
-* 表达式 setter 的联想
-* [later]表达式和其他类型的切换
+* Sorting
+* Export
+* Internationalization
+* Custom styling
+* Stop using bind
+* Autocomplete for the expression setter
+* [later] Switching between expressions and other types
 
-## 提案
+## Proposals
 
 * mock
-* 变量，上下文的提案
+* Proposal for variables and context
 * metadata for designer
 
-## 问题
+## Open questions
 
-* 变量，上下文放数据源里管理是否合适
-* mockUrl 和 mockData
-* 设计器的设计语言无法统一
+* Is managing variables and context inside data sources the right fit
+* mockUrl vs mockData
+* The design language of the designer cannot be unified

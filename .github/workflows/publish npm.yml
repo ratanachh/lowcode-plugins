@@ -24,7 +24,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16' # 或者您希望的任何版本
+        node-version: '16' # or any version you prefer
 
     - name: Publish Package
       run: |

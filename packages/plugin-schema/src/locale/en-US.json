@@ -1,3 +1,5 @@
 {
-  "Save Schema": "Save Schema"
+  "Save Schema": "Save Schema",
+  "SchemaPanePreferenceTitle": "Schema pane options",
+  "IsProjectSchema": "Whether to show the project-level schema"
 }

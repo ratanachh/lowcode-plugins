@@ -1,5 +1,5 @@
 /**
- * 设计态编辑器上下文
+ * Design-time editor context
  */
 import { createContext } from 'react';
 import { Project, Setters } from '@rchh/lowcode-shell';

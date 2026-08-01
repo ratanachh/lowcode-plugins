@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/indent */
 /**
- * 源码导入插件
- * @todo editor 关联 types，并提供详细的出错信息
+ * Source code import plugin
+ * @todo associate types with the editor and provide detailed error messages
  */
 import React, { PureComponent } from 'react';
 import { Button, Message } from '@alifd/next';
@@ -14,6 +14,7 @@ import Ajv from 'ajv';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { DataSourceType } from '../../types';
 import { generateClassName } from '../../utils/misc';
+import { intl } from '../../locale';
 
 // import './import-plugins/code.scss';
 
@@ -41,7 +42,7 @@ export class DataSourceExport extends PureComponent<DataSourceExportProps, DataS
     return new Promise((resolve, reject) => {
     const { isCodeValid, code } = this.state;
 
-    if (isCodeValid) reject(new Error('格式有误'));
+    if (isCodeValid) reject(new Error(intl('InvalidFormat')));
     resolve({ schema: code });
     });
   };
@@ -62,7 +63,7 @@ export class DataSourceExport extends PureComponent<DataSourceExportProps, DataS
 
     let result = value;
     if (_isPlainObject(result)) {
-    // 如果是对象则转化成数组
+    // Wrap a plain object into an array
     result = [result];
     } else if (!_isArray(result)) {
     return [];
@@ -77,22 +78,22 @@ export class DataSourceExport extends PureComponent<DataSourceExportProps, DataS
 
       if (!dataSourceType) return false;
 
-      // 向下兼容
+      // Backwards compatibility
       if (dataSourceType.schema) {
-        // 校验失败的数据源，给予用户提示
+        // Warn the user about data sources that fail validation
         const validate = ajv.compile(dataSourceType.schema)
         const valid = validate(dataSource)
         if (!valid) console.warn(validate.errors)
         return valid
       } else {
-        // 用户不传入 schema 校验规则，默认返回 true
+        // When no schema validation rule is provided, accept the data source
         return true
       }
     });
   };
 
   handleCopy = () => {
-    Message.success('粘贴成功！');
+    Message.success(intl('CopiedToClipboard'));
   };
 
   handleEditorChange = (newValue) => {
@@ -132,15 +133,15 @@ export class DataSourceExport extends PureComponent<DataSourceExportProps, DataS
           onChange={this.handleEditorChange}
           editorDidMount={this.handleEditorDidMount}
         />
-        {!isCodeValid && <p className="error-msg">格式有误</p>}
+        {!isCodeValid && <p className="error-msg">{intl('InvalidFormat')}</p>}
         <p className={generateClassName('export-btns')}>
           <CopyToClipboard text={code} onCopy={this.handleCopy}>
             <Button type="primary">
-              将代码复制到粘贴板
+              {intl('CopyCodeToClipboard')}
             </Button>
           </CopyToClipboard>
           <Button onClick={this.handleReset}>
-            重置
+            {intl('Reset')}
           </Button>
         </p>
       </div>

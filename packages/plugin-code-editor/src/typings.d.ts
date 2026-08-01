@@ -1,3 +1,3 @@
-// 样式文件：
+// Style files
 declare module '*.less';
 declare module 'js-beautify';

@@ -1,0 +1,14 @@
+{
+  "CodeParseError": "Failed to parse the code",
+  "ErrorBoundaryDetail": "Details",
+  "ErrorBoundaryTitle": "Something went wrong",
+  "FunctionParseError": "A(n) error occurred parsing functions. Your modification cannot be saved, please review your code, modify it, click close button to save again.",
+  "GeneralParseError": "A(n) error occurred parsing code. Your modification cannot be saved, please review your code, modify it, click close button to save again.",
+  "IrreparableState": "State cannot be parsed from current schema automatically. Please correct schema manually.",
+  "Retry": "Retry",
+  "Save": "Save",
+  "SaveSuccess": "Source code successfully saved!",
+  "SourcePane": "Source code pane",
+  "Title": "Source Editor",
+  "UnknownReason": "Unknown reason"
+}

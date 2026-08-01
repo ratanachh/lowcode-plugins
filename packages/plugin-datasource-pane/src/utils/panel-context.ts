@@ -1,5 +1,5 @@
 /**
- * 面板上下文
+ * Pane context
  */
 import React from 'react';
 import { createStateService } from './stateMachine';

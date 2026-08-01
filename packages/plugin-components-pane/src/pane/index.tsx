@@ -10,7 +10,7 @@ import List from '../components/List';
 import Component from '../components/Component';
 import Tab from '../components/Tab';
 import ComponentManager from '../store';
-import transform, { getTextReader, SortedGroups, Text, StandardComponentMeta, SnippetMeta, createI18n } from '../utils/transform';
+import transform, { getTextReader, SortedGroups, Text, StandardComponentMeta, SnippetMeta, i18nText } from '../utils/transform';
 
 const { material, common, project, event } = window.AliLowCodeEngine || {};
 
@@ -129,8 +129,8 @@ export default class ComponentPane extends React.Component<ComponentPaneProps, C
   }
 
   /**
-   * 初始化组件列表
-   * TODO: 无副作用，可多次执行
+   * Initializes the component list.
+   * TODO: make it side-effect free so it can run several times
    */
   initComponentList() {
     const { editor } = this.props;
@@ -207,7 +207,7 @@ export default class ComponentPane extends React.Component<ComponentPaneProps, C
     return (
       <div className={cx('empty')}>
         <img src="//g.alicdn.com/uxcore/pic/empty.png" />
-        <div className={cx('content')}>{this.t(createI18n('暂无组件，请在物料站点添加', 'No components, please add materials'))}</div>
+        <div className={cx('content')}>{this.t(i18nText('EmptyComponents'))}</div>
       </div>
     )
   }
@@ -304,7 +304,7 @@ export default class ComponentPane extends React.Component<ComponentPaneProps, C
         <div className={cx('header')}>
           <Search
             className={cx('search')}
-            placeholder={this.t(createI18n('搜索组件', 'Search components'))}
+            placeholder={this.t(i18nText('SearchComponents'))}
             shape="simple"
             hasClear
             autoFocus

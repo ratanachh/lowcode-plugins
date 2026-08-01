@@ -80,7 +80,7 @@ export class Service extends EditorHook {
     const index = this.actionMap.findIndex((item) => item.key === action.key);
     if (index > -1) {
       console.error(
-        `Action ${action.key}, 已被注册，此 Action 将覆盖原 Action`
+        `Action ${action.key} is already registered; this action will override the previous one`
       );
       this.actionMap.splice(index, 1);
     }

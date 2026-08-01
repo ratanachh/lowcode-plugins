@@ -35,12 +35,13 @@ import { filterXDisplay } from '../../utils/filter-x-display';
 
 import { DataSourceFormProps, DataSourceFormMode } from '../../types';
 import { isJSExpression } from '@rchh/lowcode-types';
+import { intl } from '../../locale';
 
 const SCHEMA = {
   type: 'object',
   properties: {
     type: {
-      title: '类型',
+      title: intl('Type'),
       type: 'string',
       readOnly: true,
       'x-decorator': 'FormItem',
@@ -50,11 +51,11 @@ const SCHEMA = {
     },
     id: {
       type: 'string',
-      title: '数据源 ID',
+      title: intl('DataSourceId'),
       required: true,
     },
     isInit: {
-      title: '是否自动请求',
+      title: intl('IsInit'),
       type: 'boolean',
       default: true,
       'x-decorator-props': {
@@ -63,19 +64,19 @@ const SCHEMA = {
     },
     options: {
       type: 'object',
-      title: '请求配置',
+      title: intl('RequestOptions'),
       required: true,
       properties: {
         uri: {
           type: 'string',
-          title: '请求地址',
+          title: intl('RequestUri'),
           required: true,
           'x-decorator-props': {
             addonAfter: <ComponentSwitchBtn component="LowcodeExpression" />,
           },
         },
         params: {
-          title: '请求参数',
+          title: intl('RequestParams'),
           type: 'array',
           default: [],
           'x-decorator-props': {
@@ -84,7 +85,7 @@ const SCHEMA = {
         },
         method: {
           type: 'string',
-          title: '请求方法',
+          title: intl('RequestMethod'),
           required: true,
           enum: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'].map((i) => ({
             label: i,
@@ -98,7 +99,7 @@ const SCHEMA = {
         },
         isCors: {
           type: 'boolean',
-          title: '是否支持跨域',
+          title: intl('IsCors'),
           required: true,
           default: true,
           'x-decorator-props': {
@@ -107,7 +108,7 @@ const SCHEMA = {
         },
         timeout: {
           type: 'number',
-          title: '超时时长（毫秒）',
+          title: intl('Timeout'),
           default: 5000,
           'x-decorator-props': {
             addonAfter: <ComponentSwitchBtn component="LowcodeExpression" />,
@@ -115,7 +116,7 @@ const SCHEMA = {
         },
         headers: {
           type: 'array',
-          title: '请求头信息',
+          title: intl('RequestHeaders'),
           default: [],
           'x-decorator-props': {
             addonAfter: <ComponentSwitchBtn component="LowcodeExpression" />,
@@ -125,18 +126,18 @@ const SCHEMA = {
     },
     lifecycles: {
       type: 'void',
-      title: '添加数据处理函数',
+      title: intl('AddDataHandler'),
       'x-component': 'FormLazyObj',
       'x-component-props': {
         defaultPropertyKeys: [],
-        addText: '选择添加',
+        addText: intl('SelectToAdd'),
         autoWidth: false,
       },
       'x-decorator-props': {},
       properties: {
         shouldFetch: {
           type: 'string',
-          title: '是否发起请求的计算函数',
+          title: intl('ShouldFetch'),
           'x-component': 'JSFunction',
           default: {
             type: 'JSFunction',
@@ -145,7 +146,7 @@ const SCHEMA = {
         },
         willFetch: {
           type: 'string',
-          title: '请求前对参数的处理函数',
+          title: intl('WillFetch'),
           'x-component': 'JSFunction',
           default: {
             type: 'JSFunction',
@@ -154,7 +155,7 @@ const SCHEMA = {
         },
         dataHandler: {
           type: 'string',
-          title: '请求成功对结果的处理函数',
+          title: intl('DataHandler'),
           'x-component': 'JSFunction',
           default: {
             type: 'JSFunction',
@@ -163,7 +164,7 @@ const SCHEMA = {
         },
         errorHandler: {
           type: 'string',
-          title: '请求失败对异常的处理函数',
+          title: intl('ErrorHandler'),
           'x-component': 'JSFunction',
           default: {
             type: 'JSFunction',
@@ -177,7 +178,7 @@ const SCHEMA = {
 
 
 /**
- * 通过是否存在 ID 来决定读写状态
+ * The read/write state is decided by whether an ID is present.
  */
 export class DataSourceForm extends PureComponent<DataSourceFormProps, { form: FormilyForm } > {
   constructor (props) {
@@ -197,7 +198,7 @@ export class DataSourceForm extends PureComponent<DataSourceFormProps, { form: F
   componentDidUpdate(prevProps: DataSourceFormProps) {
     const type = this.props.dataSourceType?.type;
     const ptype = prevProps.dataSourceType?.type;
-    // dataSource 或 dataSourceType.type 变了，需要更新 form，界面刷新
+    // When dataSource or dataSourceType.type changes the form must be recreated so the UI refreshes
     if (this.props.dataSource !== prevProps.dataSource || type !== ptype) {
       this.setState({
         form: this.createForm()
@@ -274,8 +275,8 @@ export class DataSourceForm extends PureComponent<DataSourceFormProps, { form: F
   deriveSchema = () => {
     const { dataSourceType, dataSourceList = [], mode } = this.props;
 
-    // 添加校验规则
-    // TODO 返回对象会报错
+    // Register the validation rules
+    // TODO returning an object throws an error
     registerValidateRules({
       validateDataSourceId(value, rule) {
         if (dataSourceList?.find((i) => i.id === value)) {
@@ -285,7 +286,7 @@ export class DataSourceForm extends PureComponent<DataSourceFormProps, { form: F
       },
     });
 
-    // @todo 减小覆盖的风险
+    // @todo reduce the risk of overriding
     const formSchema: any = _mergeWith(
       {},
       SCHEMA,
@@ -297,13 +298,13 @@ export class DataSourceForm extends PureComponent<DataSourceFormProps, { form: F
       },
     );
 
-    // 过滤 x-display 值为隐藏的属性
+    // Filter out properties whose x-display value marks them as hidden
     filterXDisplay(formSchema);
 
     if (mode === DataSourceFormMode.CREATE) {
       formSchema.properties.id['x-validator'] = {
         validateDataSourceId: true,
-        message: '该数据源已存在',
+        message: intl('DataSourceAlreadyExists'),
       };
     }
 
@@ -364,7 +365,7 @@ export class DataSourceForm extends PureComponent<DataSourceFormProps, { form: F
         properties: {
           addition: {
             type: 'void',
-            title: '添加',
+            title: intl('Add'),
             'x-component': 'ArrayItems.Addition',
             'x-component-props': {
               style: {
@@ -425,7 +426,7 @@ export class DataSourceForm extends PureComponent<DataSourceFormProps, { form: F
         properties: {
           addition: {
             type: 'void',
-            title: '添加',
+            title: intl('Add'),
             'x-component': 'ArrayItems.Addition',
             'x-component-props': {
               style: {

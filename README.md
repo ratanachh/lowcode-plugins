@@ -1,24 +1,24 @@
-## Ali Lowcode Engine 插件
+## Ali Lowcode Engine Plugins
 
-### 安装依赖
+### Install dependencies
 
-项目的 lerna 配置有问题，先不要在根目录 `npm i`，请进入 `packages/*` 执行 `npm i`。
+The lerna setup at the repository root is currently broken, so do not run `npm i` there. Enter `packages/*` and run `npm i` instead.
 
-### 本地启动
+### Run locally
 
-进入 `packages/*` 并执行 `npm run start`。
+Enter `packages/*` and run `npm run start`.
 
-### 本地编译
+### Build locally
 
-进入 `packages/*` 并执行 `npm run build`。
+Enter `packages/*` and run `npm run build`.
 
-### 发版
+### Publish
 
-需要先获得 `@alilc` 的 npm 权限，并执行 `npm login` 成功。
+You first need npm publish access to the `@alilc` scope and a successful `npm login`.
 
-修改版本号，进入 `packages/*` 并执行 `npm publish`。
+Bump the version, then enter `packages/*` and run `npm publish`.
 
-## 插件列表
+## Plugin list
 
 - base-monaco-editor
 - plugin-code-editor

@@ -12,5 +12,8 @@
   "view_manager.src.icon.View": "View",
   "view_manager.src.ViewManagement": "View",
   "view_manager.src.ViewManagementPanelPlugIn": "View management panel plug-in parameter definition",
-  "view_manager.src.pane.View": "View"
+  "view_manager.src.pane.View": "View",
+  "view_manager.src.ContextMenuActions": "Context menu items",
+  "view_manager.src.ResourceContextMenuActions": "Context menu items of a resource",
+  "view_manager.src.ResourceGroupContextMenuActions": "Context menu items of a resource group"
 }

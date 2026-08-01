@@ -34,8 +34,8 @@ export const getMethods = (ast: Node) => {
           if (p.type === 'Identifier') {
             return identifier(p.name);
           } else {
-            // 解构语法，或者 ...args
-            // 直接返回 ...args，不需要额外的构造
+            // Destructuring syntax or ...args
+            // Return it as-is, no extra construction needed
             return p;
           }
         }),

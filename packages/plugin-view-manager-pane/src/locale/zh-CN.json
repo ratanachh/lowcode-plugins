@@ -12,5 +12,8 @@
   "view_manager.src.icon.View": "视图",
   "view_manager.src.ViewManagement": "资源",
   "view_manager.src.ViewManagementPanelPlugIn": "视图管理面板插件参数定义",
-  "view_manager.src.pane.View": "视图"
+  "view_manager.src.pane.View": "视图",
+  "view_manager.src.ContextMenuActions": "右键菜单项",
+  "view_manager.src.ResourceContextMenuActions": "右键资源项，菜单项",
+  "view_manager.src.ResourceGroupContextMenuActions": "右键资源组，菜单项"
 }

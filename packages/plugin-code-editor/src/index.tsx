@@ -2,18 +2,19 @@ import { CodeEditorPane } from './pane';
 import { project } from '@rchh/lowcode-engine';
 import icon from './icon';
 import { IPublicModelPluginContext } from '@rchh/lowcode-types';
+import { intl } from './locale';
 
 const plugin = (ctx: IPublicModelPluginContext) => {
   return {
     name: 'codeEditor',
     width: 600,
-    // 依赖的插件（插件名数组）
+    // Plugins this one depends on (array of plugin names)
     dep: [],
-    // 插件对外暴露的数据和方法
+    // Data and methods exposed by the plugin
     exports() {
       return {};
     },
-    // 插件的初始化函数，在引擎初始化之后会立刻调用
+    // Plugin initializer, called right after the engine has been initialized
     init() {
       const codeEditorDock = ctx.skeleton.add({
         area: 'leftArea',
@@ -21,11 +22,11 @@ const plugin = (ctx: IPublicModelPluginContext) => {
         type: 'PanelDock',
         props: {
           icon,
-          description: '源码面板',
+          description: intl('SourcePane'),
         },
         panelProps: {
           width: '600px',
-          title: '源码面板',
+          title: intl('SourcePane'),
         },
         content: (
           <CodeEditorPane

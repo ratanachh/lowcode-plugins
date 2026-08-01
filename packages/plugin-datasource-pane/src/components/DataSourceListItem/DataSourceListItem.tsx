@@ -1,4 +1,4 @@
-// TODO 抽离 renderItem
+// TODO extract renderItem
 import React, { PureComponent, Component, CSSProperties } from 'react';
 import { Button, Icon, Checkbox, Tag, Balloon } from '@alifd/next';
 import { RuntimeDataSourceConfig as DataSourceConfig } from '@rchh/lowcode-datasource-types';
@@ -111,7 +111,7 @@ export class DataSourceListItem extends Component<DataSourceListItemProps> {
       renderInfoTags = defaultRenderInfoTags,
     } = this.props;
 
-    // 拖拽中，需要向右偏移 8p，避免覆盖
+    // While dragging, shift 8px to the right so the handle is not covered
     const offsetStyle = mode === DataSourcePanelMode.SORTING ? { marginLeft: '8px' } : null;
 
     return this.props?.connectDropTarget?.(
@@ -151,7 +151,7 @@ export class DataSourceListItem extends Component<DataSourceListItemProps> {
             {
               <div className={generateClassName('list-item-operations')}>
                 {operations?.map((operation) => {
-                  // TODO 获取不到 dataSourceTypes
+                  // TODO dataSourceTypes is not available here
                   // if (!this.context.dataSourceTypes?.find((i: any) => i.type === dataSource.type) && operation.type !== 'remove') return null;
                   return (
                     operation.visible && (

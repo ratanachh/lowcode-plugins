@@ -17,7 +17,7 @@ import ManualPlugin from '@rchh/lowcode-plugin-manual';
 import Inject, { injectAssets } from '@rchh/lowcode-plugin-inject';
 import SimulatorResizer from '@rchh/lowcode-plugin-simulator-select';
 
-// 注册到引擎
+// Register with the engine
 import TitleSetter from '@alilc/lowcode-setter-title';
 import BehaviorSetter from '../../setters/behavior-setter';
 import CustomSetter from '../../setters/custom-setter';
@@ -39,7 +39,7 @@ export default async function registerPlugins() {
 
   await plugins.register(Inject);
 
-  // plugin API 见 https://yuque.antfin.com/ali-lowcode/docs/cdukce
+  // See the plugin API at https://yuque.antfin.com/ali-lowcode/docs/cdukce
   SchemaPlugin.pluginName = 'SchemaPlugin';
   await plugins.register(SchemaPlugin);
 
@@ -50,18 +50,18 @@ export default async function registerPlugins() {
     return {
       name: 'editor-init',
       async init() {
-        // 修改面包屑组件的分隔符属性setter
+        // Change the setter of the breadcrumb separator property
         // const assets = await (
         //   await fetch(
         //     `https://alifd.alicdn.com/npm/@rchh/lowcode-materials/build/lowcode/assets-prod.json`
         //   )
         // ).json();
-        // 设置物料描述
+        // Set the material descriptions
         const { material, project } = ctx;
 
         material.setAssets(await injectAssets(assets));
 
-        // 加载 schema
+        // Load the schema
         project.openDocument(
           getProjectSchemaFromLocalStorage('basic-fusion')
             .componentsTree?.[0] || schema
@@ -77,7 +77,7 @@ export default async function registerPlugins() {
       name: 'builtin-plugin-registry',
       async init() {
         const { skeleton } = ctx;
-        // 注册 logo 面板
+        // Register the logo pane
         skeleton.add({
           area: 'topArea',
           type: 'Widget',
@@ -92,7 +92,7 @@ export default async function registerPlugins() {
           },
         });
 
-        // 注册组件面板
+        // Register the components pane
         const componentsPane = skeleton.add({
           area: 'leftArea',
           type: 'PanelDock',
@@ -102,7 +102,7 @@ export default async function registerPlugins() {
           props: {
             align: 'top',
             icon: 'zujianku',
-            description: '组件库',
+            description: 'Component library',
           },
         });
         componentsPane?.disable?.();
@@ -115,17 +115,17 @@ export default async function registerPlugins() {
   builtinPluginRegistry.pluginName = 'builtinPluginRegistry';
   await plugins.register(builtinPluginRegistry);
 
-  // 设置内置 setter 和事件绑定、插件绑定面板
+  // Configure the built-in setters and the event / variable binding panes
   const setterRegistry = (ctx: any) => {
     const { setterMap, pluginMap } = AliLowCodeEngineExt;
     return {
       name: 'ext-setters-registry',
       async init() {
         const { setters, skeleton } = ctx;
-        // 注册setterMap
+        // Register the setter map
         setters.registerSetter(setterMap as any);
-        // 注册插件
-        // 注册事件绑定面板
+        // Register the plugins
+        // Register the event binding pane
         skeleton.add({
           area: 'centerArea',
           type: 'Widget',
@@ -134,7 +134,7 @@ export default async function registerPlugins() {
           props: {},
         });
 
-        // 注册变量绑定面板
+        // Register the variable binding pane
         skeleton.add({
           area: 'centerArea',
           type: 'Widget',
@@ -148,10 +148,10 @@ export default async function registerPlugins() {
   setterRegistry.pluginName = 'setterRegistry';
   await plugins.register(setterRegistry);
 
-  // 注册回退/前进
+  // Register undo / redo
   // await plugins.register(UndoRedoPlugin);
 
-  // 注册中英文切换
+  // Register the Chinese / English switcher
   await plugins.register(ZhEnPlugin);
 
   const loadAssetsSample = (ctx: any) => {
@@ -169,7 +169,7 @@ export default async function registerPlugins() {
             width: 80,
           },
           content: (
-            <Button onClick={loadIncrementalAssets}>异步加载资源</Button>
+            <Button onClick={loadIncrementalAssets}>Load assets asynchronously</Button>
           ),
         });
       },
@@ -178,7 +178,7 @@ export default async function registerPlugins() {
   loadAssetsSample.pluginName = 'loadAssetsSample';
   await plugins.register(loadAssetsSample);
 
-  // 注册保存面板
+  // Register the save pane
   const saveSample = (ctx: any) => {
     return {
       name: 'saveSample',
@@ -194,7 +194,7 @@ export default async function registerPlugins() {
           },
           content: (
             <Button onClick={() => saveSchema('basic-fusion')}>
-              保存到本地
+              Save locally
             </Button>
           ),
         });
@@ -207,7 +207,7 @@ export default async function registerPlugins() {
           },
           content: (
             <Button onClick={() => resetSchema('basic-fusion')}>
-              重置页面
+              Reset page
             </Button>
           ),
         });
@@ -227,7 +227,7 @@ export default async function registerPlugins() {
   // CodeEditor.pluginName = 'CodeEditor';
   // await plugins.register(CodeEditor);
 
-  // 注册出码插件
+  // Register the code generation plugin
   // CodeGenPlugin.pluginName = 'CodeGenPlugin';
   // await plugins.register(CodeGenPlugin);
 
@@ -245,7 +245,7 @@ export default async function registerPlugins() {
           },
           content: (
             <Button type="primary" onClick={() => preview('basic-fusion')}>
-              预览
+              Preview
             </Button>
           ),
         });

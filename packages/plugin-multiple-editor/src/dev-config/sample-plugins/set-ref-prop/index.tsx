@@ -16,7 +16,7 @@ function addonCombine(metadata: any) {
   const refItem: any = {
     title: {
       label: 'refId',
-      tip: '用于获取组件实例，调用物料内部方法',
+      tip: 'Used to obtain the component instance and call methods inside the material',
       icon: '',
     },
     name: 'ref',

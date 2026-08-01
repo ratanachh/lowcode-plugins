@@ -7,6 +7,7 @@ import React from 'react';
 import { EditorController, editorController } from './Controller';
 import { EditorPluginInterface, Service } from './Service';
 import { loadLess, loadPrettier } from './utils/script-loader';
+import { intl } from './locale';
 
 export { editorController };
 
@@ -53,11 +54,11 @@ const pluginCodeEditor = (
                 <path d="M896 128H128c-35.2 0-64 28.8-64 64v640c0 35.2 28.8 64 64 64h768c35.2 0 64-28.8 64-64V192c0-35.2-28.8-64-64-64z m0 672c0 16-12.8 32-32 32H160c-19.2 0-32-16-32-32V224c0-16 12.8-32 32-32h704c19.2 0 32 16 32 32v576z" />
               </svg>
             ),
-            description: '源码面板',
+            description: intl('SourcePane'),
           },
           panelProps: {
             width: '848px',
-            title: '源码面板',
+            title: intl('SourcePane'),
           },
           content: (
             <EditorProvider softSave={options.softSave} mode={options.mode}>

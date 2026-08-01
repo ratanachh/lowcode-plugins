@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Search } from '@alifd/next';
 import { DataSourceType } from '../../types';
 import { generateClassName } from '../../utils/misc';
+import { intl } from '../../locale';
 
 export interface DataSourceFilterProps {
   dataSourceTypes: DataSourceType[];
@@ -22,11 +23,11 @@ export class DataSourceFilter extends PureComponent<
     keyword: '',
   };
 
-  // TODO onFilterChange 类型定义和实际不符
+  // TODO the onFilterChange type definition does not match the runtime value
   handleSearchFilterChange = (filterObj: Record<string, any>) => {
     // const { keyword } = this.state;
     const { onFilter } = this.props;
-    // TODO 所以这里转换为 string
+    // TODO hence the cast to string here
     this.setState(
       { selectedDataSourceType: filterObj as unknown as string },
       () => {
@@ -66,7 +67,7 @@ export class DataSourceFilter extends PureComponent<
           defaultFilterValue={selectedDataSourceType}
           filter={[
             {
-              label: '全部',
+              label: intl('All'),
               value: '',
             },
           ].concat(

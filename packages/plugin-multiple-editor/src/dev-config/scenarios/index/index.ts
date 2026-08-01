@@ -28,10 +28,10 @@ preference.set('DataSourcePane', {
       // locale: 'zh-CN',
       enableCondition: true,
       enableCanvasLock: true,
-      // 默认绑定变量
+      // Variables bound by default
       supportVariableGlobally: true,
-      // simulatorUrl 在当 engine-core.js 同一个父路径下时是不需要配置的！！！
-      // 这里因为用的是 alifd cdn，在不同 npm 包，engine-core.js 和 react-simulator-renderer.js 是不同路径
+      // simulatorUrl does not need to be configured when it shares a parent path with engine-core.js!
+      // Here the alifd CDN is used, so engine-core.js and react-simulator-renderer.js live in different npm packages and paths
       simulatorUrl: [
         'https://alifd.alicdn.com/npm/@rchh/lowcode-react-simulator-renderer@latest/dist/css/react-simulator-renderer.css',
         'https://alifd.alicdn.com/npm/@rchh/lowcode-react-simulator-renderer@latest/dist/js/react-simulator-renderer.js',
