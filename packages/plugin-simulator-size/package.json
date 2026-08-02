@@ -4,8 +4,8 @@
   "description": "Canvas size switcher",
   "main": "lib/index.js",
   "scripts": {
-    "start": "build-scripts start --config build.js",
-    "build": "build-scripts build --skip-demo --config build.js",
+    "start": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts start --config build.js",
+    "build": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts build --skip-demo --config build.js",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,13 +14,13 @@
     "simulator"
   ],
   "dependencies": {
-    "@rchh/lowcode-editor-core": "npm:@alilc/lowcode-editor-core@^1.0.6",
+    "@rchh/lowcode-editor-core": "^1.3.4",
     "@alifd/next": "^1.25.0"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.18",
-    "@rchh/build-plugin-alt": "npm:@alilc/build-plugin-alt@^1.2.2",
-    "@rchh/lowcode-engine": "npm:@alilc/lowcode-engine@^1.0.0",
+    "@rchh/build-plugin-alt": "^1.3.4",
+    "@rchh/lowcode-engine": "^1.3.4",
     "@types/react": "^16.8.1",
     "build-plugin-component": "^1.1.0",
     "react": "^16.8.1",

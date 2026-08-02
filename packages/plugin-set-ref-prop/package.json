@@ -15,22 +15,22 @@
   "types": "lib/index.d.ts",
   "module": "es/index.js",
   "scripts": {
-    "start": "build-scripts start",
-    "build": "build-scripts build",
+    "start": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts start",
+    "build": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts build",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@rchh/lowcode-editor-core": "npm:@alilc/lowcode-editor-core@^1.0.6",
-    "@rchh/lowcode-types": "npm:@alilc/lowcode-types@^1.0.0",
-    "@rchh/lowcode-utils": "npm:@alilc/lowcode-utils@^1.0.0",
+    "@rchh/lowcode-editor-core": "^1.3.4",
+    "@rchh/lowcode-types": "^1.3.4",
+    "@rchh/lowcode-utils": "^1.3.4",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.3",
-    "@rchh/build-plugin-alt": "npm:@alilc/build-plugin-alt@^1.0.0",
-    "@rchh/lowcode-engine": "npm:@alilc/lowcode-engine@^1.0.0",
+    "@rchh/build-plugin-alt": "^1.3.4",
+    "@rchh/lowcode-engine": "^1.3.4",
     "@types/react": "^16.9.13",
     "@types/react-dom": "^16.9.4",
     "build-plugin-fusion": "^0.1.22"

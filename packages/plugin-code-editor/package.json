@@ -12,9 +12,9 @@
   "types": "lib/index.d.ts",
   "README": "README.md",
   "scripts": {
-    "start": "build-scripts start --config build.js",
+    "start": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts start --config build.js",
     "prepublishOnly": "npm run build",
-    "build": "build-scripts build --config build.js"
+    "build": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts build --config build.js"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "@alifd/next": "^1.25.13",
-    "@rchh/lowcode-editor-core": "npm:@alilc/lowcode-editor-core@^1.0.6",
-    "@rchh/lowcode-plugin-base-monaco-editor": "1.1.2",
+    "@rchh/lowcode-editor-core": "^1.3.4",
+    "@rchh/lowcode-plugin-base-monaco-editor": "^1.1.2",
     "@babel/core": "^7.15.8",
     "@babel/parser": "^7.15.8",
     "@babel/preset-env": "7.22.9",
@@ -41,10 +41,10 @@
   "devDependencies": {
     "@alib/build-scripts": "^0.1.32",
     "@alifd/theme-lowcode-light": "^0.2.1",
-    "@rchh/build-plugin-alt": "npm:@alilc/build-plugin-alt@^1.0.0",
-    "@rchh/lowcode-engine": "npm:@alilc/lowcode-engine@^1.0.0",
-    "@rchh/lowcode-shell": "npm:@alilc/lowcode-shell@^1.0.0",
-    "@rchh/lowcode-types": "npm:@alilc/lowcode-types@^1.0.0",
+    "@rchh/build-plugin-alt": "^1.3.4",
+    "@rchh/lowcode-engine": "^1.3.4",
+    "@rchh/lowcode-shell": "^1.3.4",
+    "@rchh/lowcode-types": "^1.3.4",
     "@types/babel-types": "^7.0.9",
     "@types/babel__preset-env": "^7.9.2",
     "@types/react": "^16.9.13",

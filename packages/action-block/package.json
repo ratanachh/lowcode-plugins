@@ -9,16 +9,16 @@
     "directory": "packages/action-block"
   },
   "scripts": {
-    "start": "build-scripts start",
-    "build": "build-scripts build",
+    "start": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts start",
+    "build": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts build",
     "prepublishOnly": "npm run build"
   },
   "author": "mark.ck",
   "license": "MIT",
   "dependencies": {
     "@alifd/next": "^1.25.31",
-    "@rchh/lowcode-editor-core": "npm:@alilc/lowcode-editor-core@^1.0.6",
-    "@rchh/lowcode-engine": "npm:@alilc/lowcode-engine@^1.0.5",
+    "@rchh/lowcode-editor-core": "^1.3.4",
+    "@rchh/lowcode-engine": "^1.3.4",
     "html2canvas": "^1.4.1",
     "react": "^16.8.1"
   },
