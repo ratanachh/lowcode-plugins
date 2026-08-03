@@ -1,6 +1,6 @@
 {
   "name": "@rchh/lowcode-plugin-zh-en",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "alibaba lowcode editor zhong english plugin",
   "files": [
     "es",
@@ -33,7 +33,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alibaba/lowcode-plugins.git",
+    "url": "https://github.com/ratanachh/lowcode-plugins.git",
     "directory": "packages/plugin-zh-en"
-  }
+  },
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "bugs": "https://github.com/ratanachh/lowcode-plugins/issues"
 }

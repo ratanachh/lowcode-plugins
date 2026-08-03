@@ -1,6 +1,6 @@
 {
   "name": "@rchh/lowcode-plugin-test",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "alibaba lowcode editor test plugin",
   "files": [
     "es",
@@ -41,7 +41,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alibaba/lowcode-plugins.git",
+    "url": "https://github.com/ratanachh/lowcode-plugins.git",
     "directory": "packages/plugin-test"
-  }
+  },
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "bugs": "https://github.com/ratanachh/lowcode-plugins/issues"
 }

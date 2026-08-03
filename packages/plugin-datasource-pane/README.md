@@ -223,4 +223,4 @@ Merge requests are welcome
 
 # References
 
-* [Page building protocol specification](https://lowcode-engine.cn/lowcode)
+* [Page building protocol specification](https://ratanachh.github.io/lowcode-engine/docs/specs/lowcode-spec)

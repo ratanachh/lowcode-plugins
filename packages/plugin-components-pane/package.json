@@ -1,6 +1,6 @@
 {
   "name": "@rchh/lowcode-plugin-components-pane",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Lowcode components pane",
   "files": [
     "es/",
@@ -63,11 +63,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alibaba/lowcode-plugins.git",
+    "url": "https://github.com/ratanachh/lowcode-plugins.git",
     "directory": "packages/plugin-components-pane"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  }
+  },
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "bugs": "https://github.com/ratanachh/lowcode-plugins/issues"
 }

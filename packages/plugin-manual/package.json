@@ -1,7 +1,7 @@
 {
   "name": "@rchh/lowcode-plugin-manual",
   "author": "humphry.huang9@gmail.com",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "User manual for the lowcode product",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -36,7 +36,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alibaba/lowcode-plugins.git",
+    "url": "https://github.com/ratanachh/lowcode-plugins.git",
     "directory": "packages/plugin-manual"
-  }
+  },
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "bugs": "https://github.com/ratanachh/lowcode-plugins/issues"
 }

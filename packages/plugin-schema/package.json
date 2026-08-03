@@ -1,7 +1,7 @@
 {
   "name": "@rchh/lowcode-plugin-schema",
   "author": "alvarto",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Show schema in lowcode editor",
   "files": [
     "es",
@@ -40,8 +40,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alibaba/lowcode-plugins.git",
+    "url": "https://github.com/ratanachh/lowcode-plugins.git",
     "directory": "packages/plugin-schema"
   },
-  "peerDependencies": {}
+  "peerDependencies": {},
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "bugs": "https://github.com/ratanachh/lowcode-plugins/issues"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@rchh/lowcode-plugin-multiple-editor",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "es/index.js",
   "license": "MIT",
   "private": false,
@@ -180,6 +180,8 @@
   "fastPublish": {
     "npmClient": "npm"
   },
-  "repository": "https://github.com/alibaba/lowcode-plugins.git",
-  "peerDependencies": {}
+  "repository": "https://github.com/ratanachh/lowcode-plugins.git",
+  "peerDependencies": {},
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "bugs": "https://github.com/ratanachh/lowcode-plugins/issues"
 }

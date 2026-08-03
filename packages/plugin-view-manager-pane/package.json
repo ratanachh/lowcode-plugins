@@ -1,6 +1,6 @@
 {
   "name": "@rchh/lowcode-plugin-view-manager-pane",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "alibaba lowcode editor undo redo plugin",
   "files": [
     "es",
@@ -40,7 +40,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alibaba/lowcode-plugins.git",
+    "url": "https://github.com/ratanachh/lowcode-plugins.git",
     "directory": "packages/plugin-view-manager-pane"
-  }
+  },
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "bugs": "https://github.com/ratanachh/lowcode-plugins/issues"
 }

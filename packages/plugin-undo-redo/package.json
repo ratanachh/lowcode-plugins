@@ -1,6 +1,6 @@
 {
   "name": "@rchh/lowcode-plugin-undo-redo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "alibaba lowcode editor undo redo plugin",
   "files": [
     "es",
@@ -39,7 +39,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alibaba/lowcode-plugins.git",
+    "url": "https://github.com/ratanachh/lowcode-plugins.git",
     "directory": "packages/plugin-undo-redo"
-  }
+  },
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "bugs": "https://github.com/ratanachh/lowcode-plugins/issues"
 }

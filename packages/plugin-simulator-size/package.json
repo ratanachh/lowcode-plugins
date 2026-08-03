@@ -1,6 +1,6 @@
 {
   "name": "@rchh/lowcode-plugin-simulator-select",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Canvas size switcher",
   "main": "lib/index.js",
   "scripts": {
@@ -33,8 +33,10 @@
   "author": "mark.ck",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alibaba/lowcode-plugins.git",
+    "url": "https://github.com/ratanachh/lowcode-plugins.git",
     "directory": "packages/plugin-simulator-size"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "bugs": "https://github.com/ratanachh/lowcode-plugins/issues"
 }

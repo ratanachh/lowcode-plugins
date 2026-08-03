@@ -1,10 +1,10 @@
 {
   "name": "@rchh/lowcode-plugin-set-ref-prop",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "alibaba lowcode editor plugin for setting ref-id",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alibaba/lowcode-plugins.git",
+    "url": "https://github.com/ratanachh/lowcode-plugins.git",
     "directory": "packages/plugin-set-ref-prop"
   },
   "files": [
@@ -38,5 +38,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
-  }
+  },
+  "homepage": "https://ratanachh.github.io/lowcode-engine/",
+  "bugs": "https://github.com/ratanachh/lowcode-plugins/issues"
 }
