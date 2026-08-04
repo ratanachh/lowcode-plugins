@@ -1,6 +1,6 @@
 {
   "name": "@rchh/lowcode-plugin-components-pane",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Lowcode components pane",
   "files": [
     "es/",
@@ -14,7 +14,8 @@
     "build": "NODE_OPTIONS='--openssl-legacy-provider --no-experimental-strip-types' build-scripts build --skip-demo",
     "f2elint-scan": "f2elint scan",
     "f2elint-fix": "f2elint fix",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build && npm run postbuild",
+    "postbuild": "node ./scripts/copy-icon-assets.js"
   },
   "keywords": [
     "lowcode",
