@@ -87,10 +87,11 @@ export default function transform(raw: any, t: (input: Text) => string) {
       return !ignore;
     }).map((component: StandardComponentMeta) => {
       component.snippets.forEach(snippet => {
-        snippet.id = `${t(component.group)}_${t(component.category)}_${component.componentName}_${snippet.title}`;
+        snippet.id = `${t(component.group)}_${t(component.category)}_${component.componentName}_${t(snippet.title)}`;
         snippets.push(snippet);
       });
-      const { group = i18nText('DefaultGroup'), category, priority: componentPriority = 0 } = component;
+      const fallbackGroup = groupList[groupList.length - 1] || i18nText('DefaultGroup');
+      const { group = fallbackGroup, category, priority: componentPriority = 0 } = component;
       component.group = group;
       component.priority = componentPriority;
       const indexOfCategory = categoryList.indexOf(category);
@@ -134,7 +135,7 @@ export default function transform(raw: any, t: (input: Text) => string) {
         const { sort } = stdComponent;
         if (stdComponent.snippets.length) {
           stdComponent.snippets.forEach(snippet => {
-            snippet.id = `${t(sort.group)}_${t(sort.category)}_${snippet.componentName}_${snippet.title}`;
+            snippet.id = `${t(sort.group)}_${t(sort.category)}_${snippet.componentName}_${t(snippet.title)}`;
             snippets.push(snippet);
           });
         }
@@ -280,7 +281,17 @@ export function getTextReader(lang: string) {
       return input;
     }
     if (typeof input === 'object' && input.type === 'i18n') {
-      return input[lang];
+      const normalized = lang.replace(/-/g, '_');
+      const hyphen = lang.replace(/_/g, '-');
+      return (
+        input[normalized] ||
+        input[hyphen] ||
+        input.en_US ||
+        input['en-US'] ||
+        input.zh_CN ||
+        input['zh-CN'] ||
+        ''
+      );
     }
     return '';
   };

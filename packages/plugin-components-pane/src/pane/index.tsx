@@ -34,7 +34,7 @@ export default class ComponentPane extends React.Component<ComponentPaneProps, C
   static displayName = 'LowcodeComponentPane';
 
   static defaultProps = {
-    lang: 'zh_CN',
+    lang: 'en_US',
   };
 
   state: ComponentPaneState = {
